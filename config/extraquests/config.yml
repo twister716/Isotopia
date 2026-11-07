@@ -1,0 +1,7 @@
+# Will there be a blacklist of console commands to execute from the command reward?
+blacklist-console: false
+
+# Command names to block, optionally including their namespace. Nested execute commands are checked too.
+blacklist-console-list:
+  - op
+  - gamemode

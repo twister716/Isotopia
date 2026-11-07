@@ -1,0 +1,13 @@
+name = "GpuShift"
+filename = "gpushift-universal-1.21.1-1.2.8-bugfix.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "07b6d30462481ed712ee9027f8c679c6e8733772"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8881861
+project-id = 1533254

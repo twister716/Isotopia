@@ -1,0 +1,13 @@
+name = "Damage Numbers: Floating Damage Indicators & Crits"
+filename = "damagenumbers-neoforge-mc1.21.1-0.1.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "0ed41761f209a757572abca8b5d3f62c97dbb86d"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9369100
+project-id = 1754205

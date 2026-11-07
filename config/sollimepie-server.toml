@@ -1,0 +1,168 @@
+# Create or edit this server configuration with the online configuration generator:
+# https://lime-pie.hello-happy.world/
+[Benefits]
+	# A list of diversity value thresholds, in ascending order. When the player's food diversity reaches a threshold,
+	# they will get the benefits associated with that threshold.
+	# There is no fixed tier count or score cap: the 17 default tiers are only a starting preset.
+	# Use decimal numbers, for example thresholds = [2.0, 10.0, 250.0].
+	# Keep this list the same length as benefitsUnparsed; entries are paired by position.
+	# Extra unmatched entries have no effect. All reached tiers apply together, and their bonuses
+	# are removed if diversity drops below the corresponding threshold. The Food Book adds pages automatically.
+	# Very long lists increase reward-update, config-sync and book-opening costs.
+	#
+	#
+	thresholds = [2.0, 5.0, 7.0, 10.0, 15.0, 20.0, 25.0, 30.0, 35.0, 40.0, 45.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0]
+	# 
+	# Define custom benefits here. Each entry in the list corresponds to a benefit that will be obtained
+	# at the corresponding diversity threshold defined the list above. For example, the first entry in
+	# this list will be applied when the player's food diversity reaches the number in the first entry in
+	# the threshold list above.
+	# A benefit can also be marked as a detriment. In that case, its activation is reversed.
+	# A detriment is applied while the player has less diversity than the threshold,
+	# and will be removed when the threshold is reached.
+	# Each benefit is a string with the following form: [+/-][type],[registry name],[value] (without the brackets)
+	# A leading plus (or no symbol) denotes a benefit, while a minus denotes a detriment.
+	# The type can either be 'attribute' for attribute modifiers or 'effect' for potion effects
+	# Registry names for common vanilla attributes are 
+	# generic.max_health, generic.knockback_resistance, generic.movement_speed, generic.luck, 
+	# generic.attack_damage, generic.attack_speed, generic.armor, generic.armor_toughness 
+	# The value of attributes is the numerical number that will be added to that attribute
+	# Use a negative number for subtraction. Multiplicative modifiers are not supported.
+	# For potion effects, the value is an integer and is the potion effect amplifier. Note
+	# that the amplifier is 0 indexed, so minecraft:strength,1 corresponds to Strength II
+	#
+	# To add multiple benefits to the same threshold, separate them by a semicolon ';'
+	# Make sure that you have NO SPACES!
+	# As an example, 'attribute,generic.max_health,2;effect,strength,1' will give both +2 max hp
+	# and Strength II at the corresponding threshold.
+	# 'attribute,generic.attack_damage,1;-effect,slowness,0' will give +1 attack damage at the corresponding threshold
+	# and Slowness I below the corresponding threshold.
+	# Complete two-tier example: thresholds = [5.0, 20.0] and
+	# benefitsUnparsed = ["attribute,generic.max_health,2", "effect,strength,0;-effect,slowness,0"].
+	# Below 20 points, Slowness I applies; at 5 points, +2 health also applies; at 20 points,
+	# Strength I replaces the slowness penalty while the earlier health bonus remains.
+	# Attribute values add directly (2 health points = one heart) and still obey Minecraft's attribute limits.
+	#
+	#
+	benefitsUnparsed = ["effect,speed,0", "attribute,generic.max_health,1", "attribute,generic.max_health,1;effect,haste,0", "attribute,generic.max_health,1;effect,strength,0", "attribute,generic.max_health,1;attribute,generic.armor_toughness,2", "attribute,generic.max_health,1;effect,regeneration,0", "attribute,generic.max_health,1;effect,speed,1", "attribute,generic.max_health,1;effect,strength,0", "attribute,generic.max_health,1;effect,luck,0", "attribute,generic.max_health,1;attribute,generic.knockback_resistance,1", "attribute,generic.max_health,1;attribute,generic.movement_speed,2", "attribute,generic.max_health,1;attribute,generic.armor_toughness,2", "attribute,generic.max_health,1;effect,haste,1", "attribute,generic.max_health,1;effect,strength,1", "attribute,generic.max_health,1;attribute,generic.armor_toughness,2", "attribute,generic.max_health,1;effect,strength,2", "attribute,generic.max_health,1;effect,luck,1"]
+	# The minimum number of recorded meals before benefits or detriments can activate.
+	# This counts meals, including repetitions, not distinct food types. 0 enables rewards immediately.
+	#
+	#
+	# Default: 0
+	# Range: > 0
+	minFoodsToActivate = 0
+
+[Filtering]
+	# Foods in this list won't contribute to food diversity.
+	# Use item IDs or '*' wildcards, e.g. ["minecraft:rotten_flesh", "examplemod:*"]. Tags are not supported.
+	# Filtered meals still age other records when shouldForbiddenCount is true.
+	#
+	#
+	blacklist = []
+	#
+	# When this list contains anything, the blacklist is ignored and instead only foods from here count.
+	# Example: ["minecraft:bread", "farmersdelight:*"]. An empty list restores normal blacklist filtering.
+	#
+	#
+	whitelist = []
+
+[Miscellaneous]
+	# Extra non-food items allowed in lunchbags, lunchboxes and golden lunchboxes.
+	# Use exact item IDs, for example ["minecraft:bowl", "minecraft:glass_bottle", "sollimepie:food_book"].
+	# Unknown or malformed IDs are ignored safely; optional mod IDs work when that mod is installed. No tags or wildcards.
+	# Food is always allowed. An empty list allows only food. Lunch containers cannot be nested.
+	# Allowed bowls and bottles left after eating stay in the lunch container; other leftovers go to your inventory.
+	#
+	lunchboxExtraItems = ["minecraft:bowl", "minecraft:glass_bottle", "sollimepie:food_book"]
+	# Whether or not to reset food diversity on death, effectively losing all benefits.
+	#
+	#
+	resetOnDeath = false
+	#
+	# If true, eating foods outside of survival mode (e.g. creative/adventure) is not tracked.
+	#
+	#
+	limitProgressionToSurvival = false
+	#
+	# Number of recent recorded meals covered by the history. Default: 32. Set 0 for permanent records.
+	# Each food type occupies one record; eating it again refreshes its age instead of adding duplicate points.
+	# A positive size removes a food once that many later recorded meals have been eaten.
+	# Recipes for common play styles (settings belong to the sections shown):
+	# - Longer recent diet: Miscellaneous.queueSize = 256, Advanced.endDecay = 256, decayEnabled = true.
+	# - Permanent collection: Miscellaneous.queueSize = 0, Advanced.decayEnabled = false.
+	# - Recent diet without fading: Miscellaneous.queueSize = 64, Advanced.decayEnabled = false.
+	# Permanent history alone does not disable decay: with decay enabled and minContribution = 0, old
+	# foods remain listed but can contribute zero points. Increasing queueSize alone does not extend endDecay.
+	# Retention has no preallocated array: costs grow with distinct foods actually recorded, not this number.
+	# Large histories increase meal processing and save/sync costs; automatic food selection with decay
+	# also scans history for candidate foods. Start small when tuning a large modpack.
+	#
+	#
+	# Default: 32
+	# Range: > 0
+	queueSize = 32
+
+[Advanced]
+	# Whether food contributions decay as more meals are eaten. If false, decay settings are ignored,
+	# but records still expire when queueSize is greater than 0.
+	# Disable this together with queueSize = 0 to preserve every food's full contribution permanently.
+	#
+	decayEnabled = true
+	# Lowest contribution multiplier after decay, from 0.0 to 1.0. This is a proportion, not a point value.
+	# A food's score is its food weight multiplied by an age multiplier. Its multiplier starts at 1.0,
+	# stays there through startDecay meals, falls linearly to minContribution at endDecay, then stays there.
+	# Example: weight 4, startDecay = 0, endDecay = 100, minContribution = 0.25 gives 4 points when fresh,
+	# 2.5 points after 50 later meals and 1 point after 100. A finite queue can still remove the record.
+	# Decay measures recorded meals, not elapsed seconds. These settings are ignored if decayEnabled is false.
+	#
+	#
+	# Default: 0.0
+	# Range: 0.0 ~ 1.0
+	minContribution = 0.0
+	#
+	# Base parameter for foods without an explicit complexity override; range 0.0 to 1000000.0.
+	# Their actual weight is calculated from nutrition and saturation, so 1.0 does not mean one point per food.
+	# Increase this to raise general food scores, then adjust thresholds to match. Use complexityUnparsed
+	# to set an exact weight for one food instead. Explicit overrides ignore this parameter.
+	#
+	#
+	# Default: 1.0
+	# Range: 0.0 ~ 1000000.0
+	defaultContribution = 1.0
+	#
+	# How many meals in the past should the diversity penalty stop from.
+	# Must be at least startDecay, and at most queueSize unless queueSize is 0 (permanent records).
+	# Note that if you update queueSize, to retain the default behavior, you need to also
+	# set endDecay equal to the queueSize
+	#
+	#
+	# Default: 32
+	# Range: > 0
+	endDecay = 32
+	#
+	# How many meals in the past should the diversity time penalty start to apply.
+	# Must be less than or equal to endDecay. Ignored when decayEnabled is false.
+	#
+	#
+	# Default: 0
+	# Range: > 0
+	startDecay = 0
+	#
+	# Whether blacklisted foods should still take a spot in the queue, even if they don't contribute any diversity.
+	#
+	#
+	shouldForbiddenCount = true
+
+[Complexity]
+	# Define custom complexity values for individual foods here.
+	# The complexity value of a food is how much diversity points it gives. 
+	# Foods not listed here use the nutrition/saturation formula controlled by defaultContribution.
+	# Each entry in the list should be a string defining one food, and the format is [registry name],[value]
+	# Note that tags are NOT currently supported.
+	# Example: ["minecraft:bread,2.5", "minecraft:golden_apple,8"]. These are fresh, full weights;
+	# decay still multiplies them when enabled. Use finite, nonnegative values, exact IDs and no spaces.
+	# Unknown or non-food items are skipped with a log warning. Remove an entry to restore its calculated weight.
+	#
+	#
+	complexityUnparsed = ["minecraft:cooked_porkchop,2", "minecraft:cooked_beef,2", "minecraft:golden_carrot,2", "minecraft:golden_apple,4", "minecraft:enchanted_golden_apple,10", "farmersrespite:green_tea,3", "farmersrespite:yellow_tea,3", "farmersrespite:coffee,3", "farmersrespite:black_tea,3", "farmersrespite:rose_hip_tea,3", "farmersrespite:dandelion_tea,3", "farmersrespite:black_tea,3", "farmersrespite:rose_hip_pie_slice,4", "farmersrespite:coffee_cake_slice,4", "farmersrespite:blazing_chili,5", "farmersdelight:cake_slice,4", "farmersdelight:chocolate_pie_slice,4", "farmersdelight:apple_pie_slice,4", "farmersdelight:sweet_berry_cheesecake_slice,4"]

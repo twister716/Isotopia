@@ -1,0 +1,13 @@
+name = "Neo ECO Prototype"
+filename = "neoecoprototype-1.4.6.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "95a33534acda7b59cad86ec790afb9f90d466930"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9469099
+project-id = 1695260

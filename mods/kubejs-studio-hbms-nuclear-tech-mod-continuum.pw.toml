@@ -1,0 +1,13 @@
+name = "kubejs studio&Hbm's Nuclear Tech Mod: Continuum compat"
+filename = "kubejs_studio_hbm_compat-neoforge-1.21.1-1.0.0-beta.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "aec71af704a051214e371b37e4eb09dadefc3161"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9431498
+project-id = 1782839

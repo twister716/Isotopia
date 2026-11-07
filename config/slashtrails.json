@@ -1,0 +1,56 @@
+{
+  "_readme": "Slash Trails settings. Also in game: Mods \u003e Slash Trails \u003e Config (Fabric: with Mod Menu). theme: classic, toxic, rainbow, neon, spooky, hologram, frost, cosmic, arcade, horror, ink, ashfall, storm. colorSource: theme (the theme\u0027s colours; Classic follows the weapon), material, enchantment, custom (customColor). intensity/width/length/opacity: 0-3. weapons: per weapon type, enabled and theme (or \u0027same\u0027). items: item id -\u003e sword, axe, trident, spear, mace, tool, hand, other or none, for modded weapons. hideVanillaSweep: hide the game\u0027s grey sweep particle (off by default). forceWithCombatMods: draw trails even with Better Combat or Epic Fight installed (they have their own).",
+  "enabled": true,
+  "theme": "classic",
+  "colorSource": "theme",
+  "customColor": "#7FE8FF",
+  "intensity": 2,
+  "width": 2,
+  "length": 2,
+  "opacity": 2,
+  "glow": true,
+  "particles": true,
+  "impactSparks": true,
+  "specialHits": true,
+  "hideVanillaSweep": false,
+  "showSelf": true,
+  "showPlayers": true,
+  "showMobs": false,
+  "maxTrails": 32,
+  "forceWithCombatMods": false,
+  "weapons": {
+    "sword": {
+      "enabled": true,
+      "theme": "same"
+    },
+    "axe": {
+      "enabled": true,
+      "theme": "same"
+    },
+    "trident": {
+      "enabled": true,
+      "theme": "same"
+    },
+    "spear": {
+      "enabled": true,
+      "theme": "same"
+    },
+    "mace": {
+      "enabled": true,
+      "theme": "same"
+    },
+    "other": {
+      "enabled": true,
+      "theme": "same"
+    },
+    "tool": {
+      "enabled": false,
+      "theme": "same"
+    },
+    "hand": {
+      "enabled": false,
+      "theme": "same"
+    }
+  },
+  "items": {}
+}

@@ -1,0 +1,13 @@
+name = "Falling Blocks FPS Fix"
+filename = "gravel_fps_fix-neoforge 1.21.1-1.5.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "73569f7f6578e5654b080ba7c1bc3007a68b0f45"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8467623
+project-id = 1331006

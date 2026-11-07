@@ -1,0 +1,13 @@
+name = "Mallard Guard - Immersive Parrying"
+filename = "mallardguard-1.57b.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "c88db6eea205f785212b2a193c44e5f651a1f074"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9402959
+project-id = 1712570

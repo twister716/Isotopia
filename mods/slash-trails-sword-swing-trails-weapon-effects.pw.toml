@@ -1,0 +1,13 @@
+name = "Slash Trails: Sword Swing Trails & Weapon Effects"
+filename = "slashtrails-neoforge-mc1.21.1-0.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "372b2873d2c75033071abd7cfbbb9f46e499a9b3"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9425332
+project-id = 1781859

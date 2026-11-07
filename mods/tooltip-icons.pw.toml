@@ -1,0 +1,13 @@
+name = "Tooltip Icons"
+filename = "tooltipicons-neoforge-1.21-1.0.4.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "386f63dee2c848ca8dae89dc6ffa468dd2b2eaeb"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6827476
+project-id = 1240484

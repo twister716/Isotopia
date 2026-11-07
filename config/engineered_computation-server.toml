@@ -1,0 +1,144 @@
+#Whether bulk storage drives move a network's biggest stocks onto themself while moving smaller stock into generic storage if possible
+#Off, bulk storage drives still takes items that are already on it, and new ones once other storage is full.
+tapeArchiving = true
+
+#Networks running on RF, fed in through Energy Accepters.
+[power]
+	#Whether networks need RF, fed through Energy Accepters, to run.
+	#A network that can't pay its machines' costs stops until it can.
+	enabled = false
+	#How much RF each Energy Accepter holds. A network draws from all of its accepters.
+	# Default: 100000
+	# Range: > 1
+	accepterCapacity = 100000
+
+	#Each machine's cost in RF per tick, while power is enabled.
+	[power.costs]
+		# Default: 16
+		# Range: > 0
+		drumComputer = 16
+		# Default: 8
+		# Range: > 0
+		drumBank = 8
+		# Default: 24
+		# Range: > 0
+		tapeDrive = 24
+		# Default: 32
+		# Range: > 0
+		diskMainframe = 32
+		# Default: 16
+		# Range: > 0
+		diskBank = 16
+		# Default: 40
+		# Range: > 0
+		floppyWorkstation = 40
+		# Default: 20
+		# Range: > 0
+		floppyBank = 20
+		# Default: 24
+		# Range: > 0
+		diskProcessor = 24
+		# Default: 30
+		# Range: > 0
+		floppyProcessor = 30
+		# Default: 10
+		# Range: > 0
+		compactFloppyBay = 10
+		# Default: 2
+		# Range: > 0
+		drumTerminal = 2
+		# Default: 4
+		# Range: > 0
+		drumImporter = 4
+		# Default: 4
+		# Range: > 0
+		drumExporter = 4
+		# Default: 4
+		# Range: > 0
+		tapeTerminal = 4
+		# Default: 8
+		# Range: > 0
+		tapeImporter = 8
+		# Default: 8
+		# Range: > 0
+		tapeExporter = 8
+		# Default: 6
+		# Range: > 0
+		diskTerminal = 6
+		# Default: 12
+		# Range: > 0
+		diskImporter = 12
+		# Default: 12
+		# Range: > 0
+		diskExporter = 12
+		# Default: 8
+		# Range: > 0
+		floppyTerminal = 8
+		# Default: 16
+		# Range: > 0
+		floppyImporter = 16
+		# Default: 16
+		# Range: > 0
+		floppyExporter = 16
+		# Default: 8
+		# Range: > 0
+		storageBridge = 8
+		# Default: 32
+		# Range: > 0
+		craftingComputer = 32
+		# Default: 24
+		# Range: > 0
+		dataProcessor = 24
+		# Default: 16
+		# Range: > 0
+		storageAnalyzer = 16
+
+#Pneumatic tube networks, pressurised by Pressurizers.
+[pneumatics]
+	#Whether a tube network needs a fuelled Pressurizer to run at high pressure.
+	#Off, every tube network runs at high pressure, with no Pressurizer.
+	pressurizerRequired = true
+	#How many items a carrier holds at low pressure: with no fuelled Pressurizer on its network.
+	#Autotubes aren't held back by pressure.
+	# Default: 8
+	# Range: 1 ~ 64
+	lowPressureItems = 8
+	#How long a station waits between carriers at low pressure, in ticks.
+	# Default: 10
+	# Range: 1 ~ 1200
+	lowPressureTicks = 10
+	#How many items a carrier holds at high pressure (never more than a stack of them).
+	# Default: 64
+	# Range: 1 ~ 64
+	highPressureItems = 64
+	#How long a station waits between carriers at high pressure, in ticks.
+	# Default: 4
+	# Range: 1 ~ 1200
+	highPressureTicks = 4
+	#The item tag a Pressurizer burns for pressure.
+	pressurizerFuel = "minecraft:coals"
+	#How many high pressure carriers one fuel item gives a Pressurizer.
+	# Default: 128
+	# Range: 1 ~ 100000
+	carriersPerFuel = 128
+
+#Autocrafting by Crafting Computers.
+[crafting]
+	#How many ticks a Crafting Computer takes over each crafting grid recipe it crafts.
+	#Processing patterns run through Advanced Data Processors, at their machines' own pace.
+	# Default: 10
+	# Range: 1 ~ 1200
+	craftingTicks = 10
+
+#How memory cell contents are saved, in the world's data/engineered_computation folder. Only change these settings if you know what you're doing.
+[storage]
+	#INDEXED rewrites only the cells that changed since the last save, and is normally the best choice.
+	#BULK rewrites every cell into one file whenever any of them changed since the last save. If you need to save space it has a smaller save footprint, but it writes far more to disk on each save, and more the more cells the world has.
+	#Changing this moves the saved cells over to the new mode the next time the world loads.
+	#Allowed Values: INDEXED, BULK
+	saveMode = "INDEXED"
+	#Sector size of the INDEXED file, in bytes. Smaller sectors waste less space per cell, but when storage cells fill, they need to move around on the file more often, and this can leave small gaps behind. (this is cleaned automatically on world load or via command)
+	#Larger sectors give each cell more room to grow in place, but waste far more space, for example using 1024 or more can bloat the file size by 2-3 times.
+	#I'd leave this at the default of 128 if you don't know what you're doing.
+	#Changes to this value are applied on world load, or if you run /engineeredcomputation cells compact.
+	sectorSize = 128

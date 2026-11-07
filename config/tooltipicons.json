@@ -1,0 +1,11 @@
+{
+  "ArmorTooltip": true,
+  "DamageTooltip": true,
+  "BeeHiveTooltip": true,
+  "EffectTooltip": true,
+  "FoodTooltip": true,
+  "ShulkerBoxTooltip": {
+    "Enabled": true,
+    "Scale": 0.8
+  }
+}

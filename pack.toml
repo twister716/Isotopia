@@ -1,0 +1,13 @@
+name = "Isotopia"
+author = "Twister716"
+version = "0.1.0"
+pack-format = "packwiz:1.1.0"
+
+[index]
+file = "index.toml"
+hash-format = "sha256"
+hash = "fa357e9a76c701bb5452abd50b5f051bac81ea9ab2d7035442b51defc87e4132"
+
+[versions]
+minecraft = "1.21.1"
+neoforge = "21.1.265"

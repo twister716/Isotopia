@@ -1,0 +1,13 @@
+name = "Held Item Tooltips"
+filename = "HeldItemTooltips-v21.1.0-1.21.1-NeoForge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "421392120dc8362fb1eba482c206a0ce4c825013"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5716160
+project-id = 852671

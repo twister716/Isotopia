@@ -1,0 +1,13 @@
+name = "Ender Dragon Plus"
+filename = "enderdragonplus-1.21.1-neoforge-0.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "20adfadc79b1b1bb61e4060363b952f62ffb020c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9358704
+project-id = 1746626

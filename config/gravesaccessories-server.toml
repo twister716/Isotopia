@@ -1,0 +1,14 @@
+#What happens on death to items worn in Accessories, Curios and Cosmetic Armor Reworked slots.
+#Actions: GRAVE = normal drop; with Corpse, GraveStone, Corail Tombstone or Simple Tomb it goes into the body/grave and back to
+#its exact slot on recovery (without a grave mod: a normal vanilla drop). KEEP = stays worn through respawn.
+#DROP = dropped on the ground, never into a body or grave. DESTROY = deleted.
+#Most specific rule wins: item id, then item tag (in the order written), then slot name, then the '*' slot rule.
+#GRAVE and DROP still respect Accessories' own rules (keepInventory, keepAccessoryInventory, slots or items that
+#keep themselves, Curse of Vanishing). KEEP and DESTROY override them.
+[death]
+	#Per slot type: "slot=ACTION". Slot names as Accessories or Curios call them (ring, necklace, back, charm,
+	#head, ...; one name covers that slot type in both mods). Cosmetic Armor Reworked: cosmetic_head, cosmetic_chest,
+	#cosmetic_legs, cosmetic_feet. "*" is every slot not listed.
+	slotRules = ["*=GRAVE"]
+	#Per item, beats the slot rules: "namespace:item=ACTION" or "#namespace:tag=ACTION" for an item tag.
+	itemRules = ["#c:soulbound=KEEP", "#forge:soulbound=KEEP"]

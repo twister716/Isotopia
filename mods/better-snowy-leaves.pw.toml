@@ -1,0 +1,13 @@
+name = "Better Snowy Leaves"
+filename = "snowyleaves-1.4.3-neoforge+1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "989a335cfd525ea61e78ec85860471cb57007173"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8832738
+project-id = 1489626

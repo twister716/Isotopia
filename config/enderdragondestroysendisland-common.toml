@@ -1,0 +1,46 @@
+#Complete list of blocks protected from dragon destruction. Replaces the default list; an empty list disables this immunity. Use block IDs such as minecraft:bedrock or block tags such as #minecraft:logs. Other destruction settings still apply. Unknown IDs/tags match nothing; malformed entries are ignored with a warning. Changes apply when this config reloads.
+dragonImmuneBlocks = ["minecraft:barrier", "minecraft:bedrock", "minecraft:command_block", "minecraft:repeating_command_block", "minecraft:chain_command_block", "minecraft:structure_block", "minecraft:jigsaw", "minecraft:moving_piston", "minecraft:end_portal", "minecraft:end_portal_frame", "minecraft:end_gateway", "minecraft:respawn_anchor"]
+#Controls how often falling debris created by the Ender Dragon visually updates. Smaller values usually mean more frequent visual synchronization (smoother), but worse network performance. Adjust this if falling debris is not moving smoothly.
+#
+# Default: 4
+# Range: 1 ~ 20
+debrisUpdateInterval = 4
+#Controls the debris spawn chance. Reduce this value to improve performance.
+#
+# Default: 75
+# Range: 0 ~ 100
+debrisSpawnChance = 75
+#Controls the maximum damage falling debris can deal on impact. Damage increases with fall distance, up to this limit. This value is specified in HP (1 heart = 2 HP).
+#
+# Default: 30
+# Range: 0 ~ 100
+debrisMaxDamage = 30
+#Controls how many blocks falling debris must travel before reaching maximum damage. This value is specified in blocks (distance).
+#
+# Default: 15
+# Range: 1 ~ 60
+debrisDistanceDamage = 15
+#Whether to use a more advanced launch velocity calculation when creating debris.
+#
+# Default: true
+strongerDebrisLaunch = true
+#Whether the Ender Dragon should fly through water and lava or destroy them. Leaving this disabled can cause visual artifacts in large bodies of water.
+#
+# Default: true
+dragonTransparentFluids = true
+#If true, waterlogged blocks become debris and fly away. If false, they are transparent to the Ender Dragon. Ignored if Dragon Transparent Fluids is false.
+#
+# Default: true
+destroyWaterloggedBlocks = true
+#If true, blocks that contain NBT data will be transparent to the Ender Dragon. If false, they will be deleted.
+#
+# Default: true
+protectBlocksWithNBT = true
+#If true, prevents Endermen from targeting the Ender Dragon. If false, Endermen will target the Ender Dragon when damaged by it, as in vanilla.
+#
+# Default: true
+protectDragonFromEndermen = true
+#Makes the Ender Dragon's block destruction sounds much louder.
+#
+# Default: true
+loudDestruction = true

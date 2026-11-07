@@ -1,0 +1,13 @@
+name = "Immersive Level Up: XP, Advancement & Quest Effects"
+filename = "immersivelevelup-neoforge-1.21.1-0.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "57d2ee41ff4c4c18c803fdd7f903e28c3948b924"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9376623
+project-id = 1774874

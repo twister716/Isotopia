@@ -1,0 +1,8 @@
+#KubeJS Studio HBMNTM Compat Configuration Settings
+[general]
+	#Enable NTM Recipe Management in KubeJS Studio (true by default)
+	enableRecipes = true
+	#Enable automatic dynamic recipe introspection for custom addon machines
+	enableDynamicIntrospection = true
+	#Power unit label displayed in Studio UI ('HE', 'FE', or 'RF')
+	defaultPowerUnit = "HE"

@@ -1,0 +1,26 @@
+# Gitで管理するものだけを指定する
+# まず全部を除外して、必要なものだけ「!」で戻す
+/*
+!/.gitignore
+!/.packwizignore
+!/pack.toml
+!/index.toml
+!/tools
+!/mods
+!/config
+!/defaultconfigs
+!/kubejs
+
+# jar本体は大きく、CurseForgeから取得できるので管理しない
+/mods/*.jar
+
+# configの中でModが自動で作るもの（キャッシュ・一時ファイル・履歴・個人の記録）
+/config/emi-accelerator/stack-cache.emic
+/config/emi-accelerator/reload-timings.json
+/config/spark/tmp
+/config/spark/tmp-client
+/config/immersivelevelup/seen
+/config/immersivelevelup/streak.properties
+/config/duckylib/config-history
+/config/**/*.bak
+/config/sodium-fingerprint.json

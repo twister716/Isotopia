@@ -1,0 +1,13 @@
+name = "EMI QuickIndex"
+filename = "emi-quickindex-1.21.1-neoforge-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "30915f7f0af6bebe170b3eaf6cc995db92ea69b9"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9104705
+project-id = 1734549

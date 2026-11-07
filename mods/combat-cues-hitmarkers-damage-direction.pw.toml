@@ -1,0 +1,13 @@
+name = "Combat Cues: Low Health Vignette & Hitmarkers"
+filename = "combatcues-neoforge-mc1.21.1-0.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "eeb71a646b3e7bc4336500a1401611d6f2570ef3"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9422166
+project-id = 1749040

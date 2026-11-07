@@ -1,0 +1,13 @@
+name = "Golem Core"
+filename = "golemcore-neoforge-1.0.4-1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "45b8252e13b3bc29afa36c1c0999d8b3b5eb80d0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9413309
+project-id = 1719361

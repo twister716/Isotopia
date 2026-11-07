@@ -1,0 +1,13 @@
+name = "Corpse, GraveStone & Tombstone x Curios & Accessories Compat"
+filename = "gravesaccessories-neoforge-1.21.1-0.2.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "5a5bad0bc0b354b0be69d21c01636db0a79b03f1"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9391303
+project-id = 1777371

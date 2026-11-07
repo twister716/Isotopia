@@ -1,0 +1,4 @@
+#Max allow block space for labeler
+# Default: 128
+# Range: > 0
+maxAllowBlockSpace = 128

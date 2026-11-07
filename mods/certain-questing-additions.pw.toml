@@ -1,0 +1,13 @@
+name = "Certain Questing Additions"
+filename = "certain_questing_additions-neoforge-1.2.0.5+mc1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4f21b0b6ecdcac7ed2e870a86f37def5dbd75873"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9223254
+project-id = 1372051

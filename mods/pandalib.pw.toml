@@ -1,0 +1,13 @@
+name = "PandaLib"
+filename = "pandalib-neoforge-1.21.1-0.6.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "0d93a27bcb4ee06be500c333d7232e1d1fe02706"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8787579
+project-id = 975460

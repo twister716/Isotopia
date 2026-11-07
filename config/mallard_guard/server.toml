@@ -1,0 +1,346 @@
+#Mallard Guard config format revision.
+# Default: 130
+# Range: > 0
+configRevision = 130
+
+[stance]
+	#Allow parries when the guard key is pressed. Right Click by default; the key can be changed.
+	parry = true
+	#Per-damage-type parry rules, stored as damage_type_id=1 or =0, separated by commas. Configure in game.
+	damageRules = ""
+	#Automatically learned projectile entity ID to damage type ID associations. Updated after players are hit; used to honor modded projectile source rules at impact.
+	observedProjectileSources = ""
+	#Keep weapons and shields guarding after the parry window while the guard key is held. Off also lowers shields after successful parries.
+	block = true
+	#Players and guarding mobs restore health once per successful parry attempt. Blocking and follow-up safety hits do not heal.
+	parryHealing = false
+	#Hearts restored by a perfect parry; regular parries restore half. 0 disables healing.
+	# Default: 1
+	# Range: 0 ~ 5
+	parryHealingHearts = 1
+	#Successful weapon or empty-hand blocks before guard breaks; 0 allows unlimited blocks. Guard break delays the next guard but does not disable attacking with the item.
+	# Default: 3
+	# Range: 0 ~ 5
+	toolMaxBlocks = 3
+
+[timing]
+	#Perfect parry duration for tools; zero disables perfect parries.
+	# Default: 2
+	# Range: 0 ~ 10
+	perfectTicks = 2
+	#Total weapon parry duration, including perfect ticks.
+	# Default: 4
+	# Range: 1 ~ 10
+	parryTicks = 4
+	#Time before another attempt, counted from leaving guard.
+	# Default: 10
+	# Range: 1 ~ 60
+	rechargeTicks = 10
+
+[defense]
+	#Full width of the parry cone around the camera view direction, in degrees; 180 covers the front half, 360 allows any direction.
+	# Default: 90
+	# Range: 0 ~ 360
+	facingAngle = 90
+	#Fraction of incoming entity damage prevented while holding guard.
+	# Default: 0.5
+	# Range: 0.0 ~ 1.0
+	blockReduction = 0.5
+	#Ticks after a successful parry that catch additional valid hits; zero disables it. Follow-up hits never extend this window.
+	# Default: 5
+	# Range: 0 ~ 20
+	followUpParryTicks = 5
+	#Return damage on parries. Off preserves both damage multipliers.
+	retaliationEnabled = true
+	#Regular parry damage returned as a fraction of the incoming damage. This damage adds no knockback; attacker pushback is separate. 0 disables it; 2 doubles it.
+	# Default: 0.0
+	# Range: 0.0 ~ 2.0
+	parryRetaliation = 0.0
+	#Perfect parry damage returned as a fraction of the incoming damage. This damage adds no knockback; attacker pushback is separate. 0 disables it; 2 doubles it.
+	# Default: 0.5
+	# Range: 0.0 ~ 2.0
+	perfectRetaliation = 0.5
+	#Maximum damage returned by one parry to each target after the retaliation multiplier. 0 removes the cap. Applies to weapon and shield retaliation.
+	# Default: 25
+	# Range: 0 ~ 1000
+	retaliationCap = 25
+	#Wear in tenths of a percent of maximum durability per regular or follow-up parry. 2 means 0.2%; rounded up. 0 disables wear.
+	# Default: 2
+	# Range: 0 ~ 100
+	parryWear = 2
+	#Wear in tenths of a percent of maximum durability per perfect parry. 1 means 0.1%; rounded up. 0 disables wear.
+	# Default: 1
+	# Range: 0 ~ 100
+	perfectWear = 1
+	#Wear in tenths of a percent of maximum durability per blocked hit. 4 means 0.4%; rounded up. Real shields keep their own block wear.
+	# Default: 4
+	# Range: 0 ~ 100
+	blockWear = 4
+
+[effects]
+	#Play the supplied parry and block sounds to nearby players.
+	hitSounds = true
+	#Send animated sparks to nearby players. Blocks create none.
+	hitParticles = true
+	#Server master volume for guard sounds sent to nearby clients. 100% plays the recorded level; each listener's client master and individual volume settings multiply it. 0% mutes the sounds.
+	# Default: 100
+	# Range: 0 ~ 200
+	masterVolume = 100
+	#Perfect parry sound volume, multiplied by master volume.
+	# Default: 130
+	# Range: 0 ~ 200
+	perfectVolume = 130
+	#Regular parry sound volume, multiplied by master volume.
+	# Default: 65
+	# Range: 0 ~ 200
+	parryVolume = 65
+	#Held block sound volume, multiplied by master volume.
+	# Default: 65
+	# Range: 0 ~ 200
+	blockVolume = 65
+
+[clientEnforcement]
+	#Apply server chosen client defaults when players connect and lock categories without a Don't Enforce exception.
+	enabled = false
+	#Client categories editable after receiving server defaults: 1 world particles, 2 HUD icons, 4 audio, 8 screen effects, 16 animations, 32 experimental Punchy poses.
+	# Default: 0
+	# Range: 0 ~ 63
+	dontEnforceMask = 0
+	#Client defaults shared by the server; changed through the Enforce configuration screen.
+	defaults = "1,1,1,3,10,85,0,0,0,0,0,1,100,65,130,65,6,0,2,6,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,400,350,400,400,0,0,0,95,0,1,400,186,110,200,101,30,1,0,200,8,0,1,1,0,0,1,1,17,13,-28,7,-14,74,-3,34,3,38,28,-39,0,0,0,36,-7,-19,120,360,4,200,1,91,10,-30,22,-6,-10,26,21,-20,16,-21,-18,0,0,0,55,9,13,120,360,4,200,1,-10,100,-12,-23,11,54,-22,36,-10,31,-5,-46,0,0,0,38,-29,11,120,360,4,200,0,68,19,-24,4,-33,80,-18,-9,3,-26,25,-6,0,0,0,24,180,10,120,360,4,200,1,4,3,-58,-15,-12,51,-26,3,25,-28,24,-20,0,0,0,0,-8,10,120,360,4,200,1,100,100,100,100,4,1,100,100,100,100,9,1,100,100,100,100,5,1,100,100,100,100,5,1,100,100,100,100,6,50,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,16777215,0,80,50,16766124,100,16766900,16753995,8816262,125,4,200,8,100,0,0,0,0,0,0,0,0,0,0,0,45,0,0,0,0,0,0,0,0,0,0,0,0,20,12,8,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,1,1,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,65,12,8,0,4,0,0,6,5000,5000,6,90,0,0,0,0,0,1,20,55,100,50,100,100,1,8,45,25"
+
+[sources]
+	#Parry falls while looking at least 40 degrees down.
+	fallParry = true
+	#Require perfect timing for fall and wall-impact parries.
+	perfectFallOnly = false
+	#Allow the blast from a long fall parry to break terrain. Disable to prevent terrain damage.
+	fallBlastBreaksBlocks = true
+	#Fall parry blast scaling as a percentage of Parry It's default 0.1 radius per damage; 0 disables the blast.
+	# Default: 100
+	# Range: 0 ~ 200
+	fallBlastStrength = 100
+	#Fall parry launch strength as a percentage of Parry It's default. Perfect falls launch twice as far. 0 disables launch.
+	# Default: 20
+	# Range: 0 ~ 200
+	fallLaunchPower = 20
+	#Allow parry timing to negate explosion damage.
+	parryExplosions = true
+	#When explosion parrying is enabled, require a perfect parry; regular parries do not negate explosions.
+	perfectExplosionsOnly = false
+	#Allow held block to reduce explosion damage by the normal block reduction.
+	blockExplosions = true
+	#Only perfect parries redirect or prevent projectile hits.
+	perfectProjectilesOnly = false
+	#Parry projectile entities. Regular parries send them forward near your view; perfect parries send them straight back to the original owner.
+	parryProjectiles = true
+	#Allow held block to reduce projectile damage by the normal block reduction.
+	blockProjectiles = true
+	#Push the defender away from the impact on successful melee, projectile, and explosion parries. Shield parries use half strength.
+	defenderKnockback = true
+	#Scale attacker and defender knockback on perfect parries. 100% retains normal strength.
+	# Default: 100
+	# Range: 0 ~ 300
+	perfectKnockbackMultiplier = 100
+	#Push strength for the defender in percent; shield parries use half the configured strength. 0 disables both.
+	# Default: 50
+	# Range: 0 ~ 200
+	knockbackStrength = 50
+	#Movement speed while guarding, including parry and block. 100 keeps normal movement speed.
+	# Default: 55
+	# Range: 0 ~ 100
+	guardMovementPercent = 55
+	#Chance to deflect a projectile during held block. 0 disables deflection; every projectile type uses the same roll.
+	# Default: 0
+	# Range: 0 ~ 100
+	blockDeflectChance = 0
+
+[items]
+	#Off: recognized weapons and shields plus extra allowed items may guard. On: all held items except excluded items may guard. Empty hands use a separate toggle.
+	allowAnyItem = false
+	#Allow guarding with an empty hand. Separate from allowing all held items.
+	allowEmptyHand = false
+	#When enabled, food and drinks in either hand take priority over guard, even if the other hand holds a weapon.
+	consumablePriority = true
+	#Allow eligible items with a hold-to-use action to guard. Whitelisted items and universal guard are also allowed.
+	allowUsableItems = false
+	#Item IDs, #tags, @mod namespaces, or ID/tag keywords allowed beyond the tool requirement. The item blacklist still takes priority.
+	includedItems = ""
+	#Item IDs, #tags, @mod namespaces, or ID/tag keywords that cannot guard in any mode. Overrides whitelist and shield recognition. Empty hands use a separate toggle.
+	excludedItems = ""
+	#Extra item IDs, #tags, @mod namespaces, or ID/tag keywords using shield mechanics. Assigned weapons keep their normal guarding animations. Built-in shields and blocking items are detected automatically. A whitelist or blacklist can still restrict them.
+	shieldItems = ""
+	#When on, an item with an active vanilla or modded cooldown cannot enter the guard stance. Another eligible hand can still guard.
+	cooldownPreventsGuard = true
+	#When on, guarding waits until the attack swing has fully recharged.
+	attackCooldownPreventsGuard = true
+	#Guarding hand: 0 Random, 1 Off-Hand, 2 Main-Hand. Falls back to the other eligible hand.
+	# Default: 0
+	# Range: 0 ~ 2
+	parryHandPriority = 0
+	#When either eligible hand holds a shield: 0 Random, 1 Shield, 2 Falls back within the eligible hands. Keybind selects shield mechanics for assigned tools; normal Guard keeps their weapon parry. Actual shields work through either key.
+	# Default: 3
+	# Range: 0 ~ 3
+	shieldParryPriority = 3
+	#Crouching guards with the offhand whenever it can guard, overriding every other hand priority, including Shield Mode.
+	forceCrouchOffhand = true
+	#Item IDs, #tags, @mod namespaces, or ID/tag keywords excluded from shield recognition. Takes priority over shield tags and whitelist.
+	shieldBlacklist = ""
+
+[parried]
+	#When your attack is parried: 0 off, 1 stun, 2 guard break, 3 both. Both applies the guard-break penalty and stun together, using their separate durations.
+	# Default: 3
+	# Range: 0 ~ 3
+	reaction = 3
+	#Enable the selected Stun, Guard Break or Both reaction when your attack is parried. The current attack is interrupted automatically.
+	enabled = true
+	#Recharge penalty in Guard Break or Both mode. 20 ticks = one second.
+	# Default: 15
+	# Range: 0 ~ 60
+	guardBreakTicks = 15
+	#Duration in Stun or Both mode. Stops movement, attack and guarding; 20 ticks = one second.
+	# Default: 15
+	# Range: 0 ~ 60
+	stunTicks = 15
+
+[shields]
+	#Enable shield perfect-parry area effects without changing their stored angle.
+	perfectConeEnabled = true
+	#Shield perfect parry window, in ticks. 0 disables shield perfect parries; cannot exceed total shield parry ticks. Shield Expansion shields use their own total window and always keep a regular part.
+	# Default: 2
+	# Range: 0 ~ 10
+	perfectTicks = 2
+	#Total shield parry window, including perfect ticks. Blocking follows without restarting shield use.
+	# Default: 4
+	# Range: 1 ~ 10
+	parryTicks = 4
+	#Shield parry recharge after leaving guard; separate from guard break recharge. Regular shield parries halve it and perfect shield parries reset it, like tool parries.
+	# Default: 10
+	# Range: 1 ~ 60
+	rechargeTicks = 10
+	#Exact item block limits: mod:item=count, separated by commas. Overrides Shield Expansion counts and ordinary shield/weapon limits. 0 allows unlimited blocks; valid counts are 0–100.
+	itemBlockCounts = ""
+	#Successful shield blocks before guard breaks; 0 allows unlimited blocks. Disabled shields still obey vanilla cooldown.
+	# Default: 5
+	# Range: 0 ~ 10
+	maxBlocks = 5
+	#Recharge after the last allowed shield or weapon block. Shields also receive an item cooldown; weapons remain usable for attacking. At least the normal parry recharge applies.
+	# Default: 100
+	# Range: 1 ~ 200
+	breakTicks = 100
+	#Angle to each side of your view for the shield perfect parry cone. 90 degrees covers the whole front half (180 degrees total). 0 disables cone effects.
+	# Default: 90
+	# Range: 0 ~ 90
+	perfectCone = 90
+	#Maximum eye-to-eye distance in blocks for shield perfect parry cone effects.
+	# Default: 5
+	# Range: 1 ~ 10
+	perfectConeReach = 5
+	#Shield perfect parry damage to each target in its cone as a percentage of incoming damage. 0 disables damage; stun and pushback still apply.
+	# Default: 10
+	# Range: 0 ~ 30
+	perfectDamage = 10
+	#Shield perfect parry stun, in ticks: real shields stun every target in their cone, other shield-type items stun only the attacker. Stunned targets cannot move or attack; 0 disables the stun.
+	# Default: 30
+	# Range: 0 ~ 100
+	stunTicks = 30
+	#Shield perfect parry cone pushback strength; 0 disables pushback. Knockback applies before stun.
+	# Default: 35
+	# Range: 0 ~ 200
+	perfectPushback = 35
+	#Shield regular parry pushback on the attacker; 0 disables pushback.
+	# Default: 100
+	# Range: 0 ~ 200
+	regularPushback = 100
+	#Regular and perfect weapon parry pushback on the attacker; 0 disables pushback.
+	# Default: 80
+	# Range: 0 ~ 200
+	weaponPushback = 80
+	#Boss entity IDs or #entity tags explicitly allowed to be stunned. By default, bosses are immune to stun.
+	stunnableBosses = ""
+
+[mobs]
+	#Allow whitelisted non-boss humanoids with eligible weapons or shields to guard. Empty hands, bows and crossbows do not qualify.
+	enabled = false
+	#Scales all chance-based mob guard decisions, including rush and repeat guard. 100% uses normal chances; 50% halves them; 0 prevents new decisions. Gear chance and timing are independent.
+	# Default: 100
+	# Range: 0 ~ 100
+	guardDifficulty = 100
+	#Landed damaging combat hits needed for a pressure-based guarding attempt. Does not limit approach or tactical guarding. The hit that triggers the stance still deals damage; the mob can parry subsequent attacks.
+	# Default: 1
+	# Range: 1 ~ 3
+	hitsBeforeGuard = 1
+	#Perfect timing at the start of each mob stance. Remaining stance time is regular parry. 0 disables perfect.
+	# Default: 15
+	# Range: 0 ~ 20
+	perfectTicks = 15
+	#Maximum rush after a successful mob parry; ends after one melee attempt. 0 disables rushing.
+	# Default: 20
+	# Range: 0 ~ 40
+	counterTicks = 20
+	#Chance to raise guard on the first close approach to a target, within the randomly chosen approach distance. Scaled by mob guard difficulty. 0 disables.
+	# Default: 100
+	# Range: 0 ~ 100
+	approachChance = 100
+	#Chance per scheduled combat decision (every 2-4 seconds) to begin tactical guarding. Scaled by difficulty and limited by its cooldown. 0 disables.
+	# Default: 100
+	# Range: 0 ~ 100
+	tacticalChance = 100
+	#Maximum tactical stance duration, randomly 1 second through this value. One continuous parry window; no repeated raises.
+	# Default: 2
+	# Range: 1 ~ 10
+	tacticalMaxSeconds = 2
+	#Wait after the reserved tactical stance end before another tactical attempt.
+	# Default: 100
+	# Range: 20 ~ 1200
+	tacticalCooldownTicks = 100
+	#Only these exact entity IDs can guard or receive generated gear. Comma-separated; bosses remain excluded. Empty means none.
+	whitelist = "minecraft:skeleton,minecraft:zombie,minecraft:piglin,minecraft:zombified_piglin,minecraft:bogged,minecraft:husk"
+	#Return damage on regular mob parries using the regular server multiplier. Shield regular parries return no damage.
+	regularRetaliation = true
+	#Return damage on perfect mob parries using the perfect server multiplier, or shield retaliation for shields.
+	perfectRetaliation = true
+	#Movement speed retained while a mob guards. Independent of player guarding speed. 100% causes no guard slowdown; 0% prevents deliberate movement.
+	# Default: 100
+	# Range: 0 ~ 100
+	guardMovement = 100
+	#Random close-approach trigger distance from 1 block through this maximum.
+	# Default: 3
+	# Range: 1 ~ 5
+	approachDistance = 3
+	#Maximum approach or pressure stance duration, randomly 1 second through this value. One continuous parry window.
+	# Default: 2
+	# Range: 1 ~ 10
+	approachMaxSeconds = 2
+	#Chance to rush after a successful parry, scaled by difficulty. Otherwise the mob lowers guard or attempts one follow-up stance.
+	# Default: 100
+	# Range: 0 ~ 100
+	rushChance = 100
+	#Chance to add assigned equipment to a fresh whitelisted vanilla humanoid. Existing melee gear and occupied armor slots are preserved. Independent of Difficulty.
+	# Default: 50
+	# Range: 0 ~ 100
+	gearChance = 50
+	#Allowed mob spawn equipment. IDs, #tags, @mods and ! exceptions use the shared assignment rules. Only usable equipment enters the gear pool.
+	gearWhitelist = "minecraft:leather_helmet,minecraft:leather_chestplate,minecraft:leather_leggings,minecraft:leather_boots,minecraft:chainmail_helmet,minecraft:chainmail_chestplate,minecraft:chainmail_leggings,minecraft:chainmail_boots,minecraft:iron_helmet,minecraft:iron_chestplate,minecraft:iron_leggings,minecraft:iron_boots,minecraft:golden_helmet,minecraft:golden_chestplate,minecraft:golden_leggings,minecraft:golden_boots,minecraft:diamond_helmet,minecraft:diamond_chestplate,minecraft:diamond_leggings,minecraft:diamond_boots,minecraft:wooden_sword,minecraft:wooden_pickaxe,minecraft:wooden_shovel,minecraft:wooden_hoe,minecraft:stone_sword,minecraft:stone_pickaxe,minecraft:stone_shovel,minecraft:stone_hoe,minecraft:iron_sword,minecraft:iron_pickaxe,minecraft:iron_shovel,minecraft:iron_hoe,minecraft:golden_sword,minecraft:golden_pickaxe,minecraft:golden_shovel,minecraft:golden_hoe,minecraft:diamond_sword,minecraft:diamond_pickaxe,minecraft:diamond_shovel,minecraft:diamond_hoe"
+	#Disallowed mob spawn equipment; overrides the whitelist. Items absent from the whitelist are not generated.
+	gearBlacklist = ""
+	#Mob Flying Sparks base color.
+	# Default: 16777215
+	# Range: 0 ~ 16777215
+	flyingSparkColor = 16777215
+	#Mob Spark Debris color.
+	# Default: 16777215
+	# Range: 0 ~ 16777215
+	sparkDebrisColor = 16777215
+	#Mob tracer color at spawn; also colors the beginning of its impact.
+	# Default: 16777215
+	# Range: 0 ~ 16777215
+	tracerStartColor = 16777215
+	#Mob tracer color halfway through fading; also colors the middle of its impact.
+	# Default: 16777215
+	# Range: 0 ~ 16777215
+	tracerMiddleColor = 16777215
+	#Mob tracer color near disappearance; also colors the end of its impact.
+	# Default: 16777215
+	# Range: 0 ~ 16777215
+	tracerEndColor = 16777215

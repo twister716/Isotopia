@@ -1,0 +1,14 @@
+{
+  "isAdvancementNotificationEnabled": true,
+  "isRecipeNotificationEnabled": true,
+  "isMusicNotificationEnabled": false,
+  "isScreenshotNotificationEnabled": true,
+  "isSystemNotificationEnabled": true,
+  "isWeatherNotificationEnabled": false,
+  "isBiomeNotificationEnabled": false,
+  "isLoginPlayerNotificationEnabled": false,
+  "isFieldGuideNotificationEnabled": true,
+  "isSpectrumMessageNotificationEnabled": true,
+  "isSpectrumRevelationNotificationEnabled": true,
+  "isSpectrumUnlockedRecipeNotificationEnabled": true
+}

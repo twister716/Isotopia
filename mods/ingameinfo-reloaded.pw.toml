@@ -1,0 +1,13 @@
+name = "InGameInfo-Reloaded"
+filename = "ingameinforeloaded-2.9.2.104-mc1.21.1-neoforge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f7800a6fe912d50e15a326c8240d9687eae628ad"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9307084
+project-id = 1762892

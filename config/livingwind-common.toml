@@ -1,0 +1,231 @@
+#Core synchronized wind simulation values.
+[wind]
+	#Lowest ordinary clear-weather base wind target.
+	# Default: 0.04
+	# Range: 0.0 ~ 1.5
+	minimumBaseStrength = 0.04
+	#Highest ordinary clear-weather base wind target before events/weather.
+	# Default: 0.48
+	# Range: 0.0 ~ 1.5
+	maximumBaseStrength = 0.48
+	#Simulation cap after weather, events and gusts are combined, before the global multiplier.
+	# Default: 1.6
+	# Range: 0.25 ~ 2.5
+	maximumEffectiveStrength = 1.6
+	#Final multiplier applied to the whole synchronized wind result.
+	#1.30 makes every wind state, including extreme storms and gusts, 30% stronger.
+	# Default: 1.3
+	# Range: 0.25 ~ 2.5
+	globalStrengthMultiplier = 1.3
+
+#How vanilla rain and thunder influence Living Wind.
+[weather]
+	#Bias added while raining. Turbulence and gusts remain irregular.
+	# Default: 0.24
+	# Range: 0.0 ~ 1.5
+	rainStrengthBonus = 0.24
+	#Additional bias while thundering.
+	# Default: 0.44
+	# Range: 0.0 ~ 1.5
+	thunderStrengthBonus = 0.44
+	#Chance an approaching scheduled rain transition creates a pre-storm wind front.
+	# Default: 0.58
+	# Range: 0.0 ~ 1.0
+	preStormFrontChance = 0.58
+	#How early a pre-storm front may begin. 1000 ticks is one Minecraft hour.
+	# Default: 2400
+	# Range: 200 ~ 12000
+	preStormLeadTicks = 2400
+
+#Occasional naturally windy periods independent of storms.
+[events]
+	#Chance each day of a genuinely calm atmospheric profile.
+	#Calm days do not also roll a naturally windy period. Storms and commands can still bring wind.
+	# Default: 0.09
+	# Range: 0.0 ~ 1.0
+	calmDayChance = 0.09
+	#Chance each day of a sustained breezy atmospheric profile (after the calm-day roll).
+	#Calm and breezy shares are mutually exclusive; their total should not exceed 1.0.
+	# Default: 0.26
+	# Range: 0.0 ~ 1.0
+	breezyDayChance = 0.26
+	#Chance per Minecraft day to schedule a naturally windy period.
+	# Default: 0.55
+	# Range: 0.0 ~ 1.0
+	windyPeriodChance = 0.55
+	#Minimum duration of a naturally windy period in ticks.
+	# Default: 3000
+	# Range: 200 ~ 24000
+	windyPeriodMinTicks = 3000
+	#Maximum duration of a naturally windy period in ticks.
+	# Default: 7200
+	# Range: 200 ~ 24000
+	windyPeriodMaxTicks = 7200
+	#Allow occasional clusters of 2-5 back-to-back natural gusts; does not change normal gust scheduling.
+	gustClustersEnabled = true
+	#Multiplier for the chance that a natural gust starts a cluster. 0 disables new clusters, 1 is the default.
+	# Default: 1.0
+	# Range: 0.0 ~ 3.0
+	gustClusterChanceMultiplier = 1.0
+
+#Optional Overworld altitude scaling. Higher exposed terrain can experience stronger wind while the shared atmospheric direction/state remains the same.
+[altitude]
+	#Enable stronger local wind at higher Y levels in the Overworld.
+	enabled = true
+	#Y level where the minimum altitude multiplier applies. Below this height the minimum multiplier is retained.
+	# Default: 64
+	# Range: -64 ~ 320
+	minimumY = 64
+	#Y level where the maximum altitude multiplier is reached. Above it the maximum multiplier is retained.
+	# Default: 192
+	# Range: -64 ~ 512
+	maximumY = 192
+	#Wind multiplier at/below minimumY.
+	# Default: 1.0
+	# Range: 0.0 ~ 3.0
+	minimumMultiplier = 1.0
+	#Wind multiplier at/above maximumY.
+	# Default: 1.35
+	# Range: 0.0 ~ 3.0
+	maximumMultiplier = 1.35
+
+#Dimension-specific simulation. Weather bonuses are never applied in the Nether or End.
+[dimensions]
+	#DISABLED = no wind; REDUCED_GUSTY = weaker background, more pronounced gusts; NORMAL = unmodified simulation.
+	#Allowed Values: DISABLED, REDUCED_GUSTY, NORMAL
+	netherWindMode = "REDUCED_GUSTY"
+	#DISABLED = no wind; VERY_WEAK = faint air with very gradual directional shifts; NORMAL = unmodified simulation.
+	#Allowed Values: DISABLED, VERY_WEAK, NORMAL
+	endWindMode = "DISABLED"
+	#Dimension IDs with Living Wind completely disabled (e.g. modid:dimension). Overrides Nether/End settings and forced wind commands.
+	dimensionBlacklist = []
+	#Dimension modes as modid:dimension=MODE. Valid modes: NORMAL, REDUCED_GUSTY, VERY_WEAK, DISABLED. Entries override the legacy blacklist and vanilla mode values.
+	dimensionModes = []
+	#Wind behavior of dimensions not explicitly listed (vanilla Nether and End retain their previous modes until overridden).
+	#Allowed Values: NORMAL, REDUCED_GUSTY, VERY_WEAK, DISABLED
+	defaultDimensionMode = "NORMAL"
+
+#Optional Serene Seasons / Ecliptic Seasons seasonal atmosphere. Server controls affect the synchronized wind for every player.
+[seasonalCompatibility]
+	#Adjust background wind and natural gust frequency/intensity across the four seasons. Respects manual wind commands and dimensions without seasons.
+	seasonalWindEnabled = true
+	#Scale seasonal wind differences: 0 = normal Living Wind all year, 1 = balanced seasons, 2 = exaggerated seasonal changes.
+	# Default: 1.0
+	# Range: 0.0 ~ 2.0
+	seasonalWindIntensity = 1.0
+
+#Optional physical wind on entities. Disabled by default; changes gameplay when enabled.
+[entityWind]
+	#Master switch: allow Living Wind to influence entity movement. OFF by default.
+	enabled = false
+	#Push survival/adventure players, with stronger effects while airborne. Creative/spectator and mounted players are excluded.
+	players = true
+	#Wind force on grounded players, relative to the original 0.12 grounded factor. 2.5 is 2.5x stronger than before.
+	# Default: 2.5
+	# Range: 0.0 ~ 5.0
+	playerGroundedMultiplier = 2.5
+	#Wind force on jumping/falling players. Existing playerMultiplier values are preserved. 0 disables airborne player push.
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	playerMultiplier = 1.0
+	#Push mobs, especially while falling or jumping. Ground movement receives only a small push.
+	mobs = true
+	#Wind force on grounded mobs, relative to the original 0.12 grounded factor. 2.5 is 2.5x stronger than before.
+	# Default: 2.5
+	# Range: 0.0 ~ 5.0
+	mobGroundedMultiplier = 2.5
+	#Wind force on airborne mobs. Existing mobMultiplier values are preserved. 0 disables airborne mob push.
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	mobMultiplier = 1.0
+	#Deflect moving projectiles while airborne, such as arrows, snowballs and thrown potions.
+	projectiles = true
+	#Multiplier for wind deflection of projectiles. 0 disables the force for projectiles.
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	projectileMultiplier = 1.0
+	#Let wind gently drift vanilla boats and chest boats. Steering remains under the rider's control. OFF by default.
+	boats = false
+	#Multiplier for wind-driven boat drift. 0 disables boat force. Only applies in exposed outdoor areas.
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	boatMultiplier = 1.0
+	#Let exposed dropped item entities drift with wind, including items floating at the water surface. OFF by default.
+	droppedItems = false
+	#Multiplier for dropped item wind drift. 0 disables the force; items on the ground experience less push.
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	droppedItemMultiplier = 1.0
+
+#Optional Create windmill bearing compatibility. Uses real kinetic RPM and stress capacity, not visual-only animation.
+[createWindmills]
+	#Scale Create windmill bearing RPM with Living Wind. Both mods must be installed on the server; Create is optional.
+	enabled = true
+	#Minimum speed multiplier for very weak winds. At exactly zero wind, assembled bearings instead run at an absolute 0.1 RPM.
+	# Default: 0.05
+	# Range: 0.01 ~ 2.0
+	minimumMultiplier = 0.05
+	#Generated RPM multiplier at Living Wind strength 2.0 or higher. Affects kinetic stress capacity.
+	# Default: 2.5
+	# Range: 0.5 ~ 4.0
+	maximumMultiplier = 2.5
+	#Target RPM quantization step, preventing minor wind fluctuations from rebuilding Create kinetic networks.
+	# Default: 1.0
+	# Range: 0.25 ~ 4.0
+	rpmStep = 1.0
+	#Minimum RPM difference required to refresh a kinetic network.
+	# Default: 1.0
+	# Range: 0.25 ~ 8.0
+	minimumRpmChange = 1.0
+	#Maximum RPM increase/decrease in one refresh. Prevents instantaneous huge speed jumps.
+	# Default: 6.0
+	# Range: 0.5 ~ 32.0
+	maximumChangePerUpdate = 6.0
+	#Minimum tick interval between kinetic network speed checks per bearing. 40 ticks = 2 seconds.
+	# Default: 40
+	# Range: 20 ~ 200
+	updateTicks = 40
+
+#Optional Sable / Create Aeronautics vehicle wind physics. Server-authoritative; has no effect without Sable installed.
+[aeronautics]
+	#Let wind push assembled Sable contraptions with Aeronautics envelopes, Create sails, or tagged balloon blocks (including Coasters: Simulated). Disabled automatically when Sable is absent or AeroWeather supplies physics.
+	enabled = true
+	#Wind force multiplier on eligible airships/sail-bearing contraptions. 1.0x is the balanced, playtested baseline (formerly 0.30x); 0 disables the force.
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	forceMultiplier = 1.0
+	#Drive Transmission & Linkage Kinetic Conversion Bearings with Living Wind. Only assembled Sable rotors with Create windmill sails generate torque. NeoForge 1.21.1 only.
+	kineticConversionBearingEnabled = true
+	#Transmission & Linkage windmill power multiplier. 1.0 uses the stronger v1.3.7 wind-drive balance; higher values provide more power under load. 0 disables wind drive (drag remains).
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	kineticConversionBearingTorqueMultiplier = 1.0
+	#Diagnostic: log rotor sail layout every 10 seconds, plus wind strength, RPM and limiting forces every 5 seconds. Enable only for testing.
+	kineticConversionBearingDebug = false
+
+#Optional Create: High Seas wind integration. Replaces its wind queries with Living Wind, leaving sail physics to High Seas. Requires Create: High Seas.
+[highSeas]
+	#When High Seas is installed, feed its sails, wind vane, and wind visuals from Living Wind's synchronized weather instead of High Seas' procedural wind.
+	#Turn off to restore High Seas' original wind simulation and behavior.
+	enabled = true
+
+#Optional Small Ships 2.0 wind integration. The ships retain their sailing physics and use Living Wind's direction/strength instead of independently generated wind.
+[smallShips]
+	#Use Living Wind as Small Ships' wind source when Small Ships is installed. Disable to restore its independent wind simulation.
+	enabled = true
+
+#Optional Realm RPG: Treasure Balloons flight integration (both loaders). Has no effect without the other mod.
+[treasureBalloons]
+	#Let Living Wind push intact Treasure Balloons in its direction, speeding them up downwind and slowing them upwind. Disable to restore the original cardinal-direction flight.
+	enabled = true
+	#Strength of wind-driven Treasure Balloon drift. 1.0 is balanced; 0 disables drift. Does not affect popped balloons.
+	# Default: 1.0
+	# Range: 0.0 ~ 5.0
+	windMultiplier = 1.0
+
+#Low-frequency server-to-client wind synchronization.
+[network]
+	#Small wind snapshot interval. 40 ticks is every 2 seconds.
+	# Default: 40
+	# Range: 10 ~ 200
+	syncIntervalTicks = 40

@@ -1,0 +1,13 @@
+name = "Framed Block + Building Gadgets Implementation"
+filename = "framedbg2support-0.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "174ffc25ad997fc5a85f6a19d92755c933349e2c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8193819
+project-id = 1564206

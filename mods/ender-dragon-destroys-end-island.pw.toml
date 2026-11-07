@@ -1,0 +1,13 @@
+name = "Ender Dragon Destroys End Island"
+filename = "enderdragondestroysendisland-2.2.3-mc1.21-neoforge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "26e701428475bbe9e0a5f92b17b54870bcd87403"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9452995
+project-id = 1556658

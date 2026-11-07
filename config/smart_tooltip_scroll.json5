@@ -1,0 +1,14 @@
+{
+	// If custom Tooltip dimensions are enabled.
+	custom_tooltip_dimensions: true,
+	// How to handle long tooltip titles that exceed the maximum tooltip width. Accepts: TRUNCATE, WRAP, SCROLL
+	title_overflow_mode: "SCROLL",
+	// Maximum percentage of the Minecraft window allowed as the tooltip height.
+	max_height_percentage: 50,
+	// Maximum percentage of the Minecraft window allowed as the tooltip width.
+	max_width_percentage: 50,
+	// If scrolling in different containers is disabled while scrolling on a tooltip. You probably don't want to disable this.
+	lock_container_scrolling: true,
+	// Smoothness of the tooltip scroll animation. 0.0 is instant, 1.0 is very smooth.
+	scroll_smoothness: 0.25
+}

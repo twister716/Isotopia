@@ -1,0 +1,13 @@
+name = "Optimization of Campfire Smoke"
+filename = "ocs-1.21.x-1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "3b3b02045bcf084c77884e4a06e32e7831890920"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6866584
+project-id = 1317747

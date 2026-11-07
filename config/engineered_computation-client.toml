@@ -1,0 +1,15 @@
+#How terminals sort their items. The buttons beside a terminal's search field change these.
+[terminals]
+	#What terminals sort their items by.
+	#Allowed Values: NAME, COUNT
+	sortBy = "NAME"
+	#Whether terminals sort their items in descending order.
+	descending = false
+	#Whether autocrafting terminals show stored and craftable items, only craftable ones, or hide the items
+	#that can only be crafted.
+	#Allowed Values: BOTH, ONLY, HIDDEN
+	craftables = "BOTH"
+	#Where terminals list what Storage Analyzers report: sorted in with what the network holds, at the
+	#top, at the bottom, or not at all.
+	#Allowed Values: MIXED, TOP, BOTTOM, HIDDEN
+	analyzed = "MIXED"

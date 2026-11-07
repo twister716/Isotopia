@@ -1,0 +1,4 @@
+[battery]
+	# Default: 20000
+	# Range: > 0
+	infinityColorApplicator = 20000

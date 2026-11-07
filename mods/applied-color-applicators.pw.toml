@@ -1,0 +1,13 @@
+name = "Applied Color Applicators"
+filename = "appliedcolorapplicators-1.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "721f35d5cc6bf773dce2adbdc89c7eacbfaff064"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8432375
+project-id = 1585070

@@ -1,0 +1,12 @@
+{
+  "notificationsTransparency": 1.0,
+  "padding": 2,
+  "maxAmount": 4,
+  "notificationsWidth": 160,
+  "orientation": "VERTICAL",
+  "anchor": "TOP_RIGHT",
+  "animation": "VANILLA",
+  "animationDuration": 15,
+  "particlesEnabled": true,
+  "debug": false
+}

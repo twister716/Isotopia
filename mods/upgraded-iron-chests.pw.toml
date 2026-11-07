@@ -1,0 +1,13 @@
+name = "Upgraded Iron Chests"
+filename = "upgraded-iron-chests-1.5.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4767db47552868236f6bc7ef0dc44da6113d72d1"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9288073
+project-id = 1535273

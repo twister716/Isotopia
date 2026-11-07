@@ -1,0 +1,328 @@
+#How synchronized wind pushes existing vanilla and modded particles.
+[particleWind]
+	#Allow Living Wind to push eligible existing particles.
+	affectExistingParticles = true
+	#Horizontal drift added to eligible particles. High wind is intentionally amplified
+	#more strongly than light wind so storms and gusts are visually distinct.
+	# Default: 0.12
+	# Range: 0.0 ~ 0.25
+	particleWindForce = 0.12
+	#Choose whether the particle ID list is a blacklist or whitelist.
+	#Allowed Values: BLACKLIST, WHITELIST
+	filterMode = "BLACKLIST"
+	#Your custom particle IDs (blacklist additions, or whitelist entries).
+	#Living Wind maintains built-in blacklist defaults separately; future updates never replace your custom entries.
+	filter = []
+	#Optional built-in blacklist exclusions explicitly unlocked by the user in the particle filter editor.
+	#Empty by default. The ordinary built-in protection stays active unless a user opts out.
+	builtinBlacklistExceptions = []
+	#Optional per-particle wind response multipliers, stored as modid:particle=multiplier.
+	#1.0 keeps normal Living Wind response; values above 1 make a particle lighter/more wind-responsive;
+	#values between 0 and 1 reduce response. Particular leaves default to 2.5x and SkyLands clouds to 0.25x.
+	#Built-in mod defaults still apply to older configs; an explicit entry here overrides them.
+	responseMultipliers = ["particular:oak_leaf=2.5", "particular:birch_leaf=2.5", "particular:spruce_leaf=2.5", "particular:jungle_leaf=2.5", "particular:acacia_leaf=2.5", "particular:dark_oak_leaf=2.5", "particular:azalea_leaf=2.5", "particular:mangrove_leaf=2.5", "particular:white_oak_leaf=2.5", "particular:white_spruce_leaf=2.5", "particular:maple_leaf=2.5", "particular:brimwood_leaf=2.5", "particular:ru_baobab_leaf=2.5", "particular:kapok_leaf=2.5", "particular:eucalyptus_leaf=2.5", "particular:redwood_leaf=2.5", "particular:magnolia_leaf=2.5", "particular:ru_palm_leaf=2.5", "particular:larch_leaf=2.5", "particular:golden_larch_leaf=2.5", "particular:socotra_leaf=2.5", "particular:bamboo_leaf=2.5", "particular:willow_leaf=2.5", "particular:ru_cypress_leaf=2.5", "particular:ww_baobab_leaf=2.5", "particular:ww_cypress_leaf=2.5", "particular:ww_palm_leaf=2.5", "flying_stuff:cloud=0.25", "flying_stuff:cloud_smoke=0.25", "flying_stuff:cloud_smoke_1=0.25", "flying_stuff:cloud_barrier_2=0.25", "flying_stuff:cloud_barrier_3=0.25"]
+	#Internal one-time upgrade marker for earlier Streams Reflowing 0.3x defaults.
+	streamsReflowingDefaultsMigrated = true
+
+#Tiny world particles emitted by exposed blocks when wind is present.
+[ambientParticles]
+	#Enable ambient wind particles emitted by nearby blocks.
+	enabled = true
+	#Random nearby block samples per client tick. The system deliberately avoids cubic area scans.
+	# Default: 8
+	# Range: 0 ~ 32
+	samplesPerTick = 8
+	#Horizontal radius used for randomized ambient emitter samples.
+	# Default: 18
+	# Range: 4 ~ 48
+	sampleRadius = 18
+	#Minimum local wind strength before ambient wind pixels can spawn.
+	#Below this threshold no ambient wind particles are emitted.
+	# Default: 0.12
+	# Range: 0.0 ~ 1.5
+	minimumWindStrength = 0.12
+	#Multiplier for ambient-particle spawn chance without increasing terrain sample count.
+	#1.30 means roughly 30% more ambient particles for the same wind and sampling workload.
+	# Default: 1.3
+	# Range: 0.0 ~ 4.0
+	densityMultiplier = 1.3
+	#User-facing scale for how strongly Living Wind's tiny ambient debris follows the wind.
+	#The 1.0 scale is calibrated to the old 3.0 setting; the new default is 2.0 for stronger wind response.
+	#Use values below/above 2.0 to reduce/increase the new default response.
+	# Default: 2.0
+	# Range: 0.0 ~ 4.0
+	windResponseScale = 2.0
+	#Controls the subtle upward lift of tiny ambient debris, especially in stronger wind.
+	#This is deliberately gentle; higher values make motes rise more noticeably.
+	# Default: 1.0
+	# Range: 0.0 ~ 4.0
+	liftMultiplier = 1.0
+	#Controls smooth cross-wind meandering of ambient debris.
+	#This adds low-frequency turbulence without changing the main wind direction.
+	# Default: 1.0
+	# Range: 0.0 ~ 4.0
+	swayMultiplier = 1.0
+	#Minimum lifetime of an ambient wind pixel in ticks. 20 ticks = 1 second.
+	# Default: 100
+	# Range: 20 ~ 600
+	minimumLifetimeTicks = 100
+	#Maximum lifetime of an ambient wind pixel in ticks. 20 ticks = 1 second.
+	# Default: 180
+	# Range: 20 ~ 600
+	maximumLifetimeTicks = 180
+
+#Subtle Breath-of-the-Wild-inspired visual wind lines; fully client-side.
+[windStreaks]
+	#Draw soft, slightly curved wind streaks without any entities or trail particles.
+	enabled = true
+	#Wind streak spawn density. 0 disables spawns without disabling other wind effects.
+	# Default: 1.0
+	# Range: 0.0 ~ 4.0
+	density = 1.0
+	#Minimum local wind strength before wind streaks start appearing.
+	# Default: 0.4
+	# Range: 0.0 ~ 2.5
+	minimumWindStrength = 0.4
+	#Hard limit on simultaneously active native wind streaks (8 vertices each).
+	# Default: 24
+	# Range: 0 ~ 80
+	maxActive = 24
+
+#Canopy-born, visibly tumbling native Minecraft leaf particles.
+[windLeaves]
+	#Generate native, tumbling leaves/petals/grass blades from exposed foliage and plants, independently of the tiny ambient particles.
+	enabled = true
+	#Amount of windblown foliage and grass blades near trees, flowers and meadows; scales with wind strength and Minecraft particle settings.
+	# Default: 1.0
+	# Range: 0.0 ~ 4.0
+	density = 1.0
+	#Derive flower/petal particle colors from loaded modded block textures.
+	#Colors are sampled only once per block state, cached, and refreshed on resource-pack reload.
+	#Disable to revert to biome tint, flower-name fallback, and map color only.
+	textureDerivedColors = true
+	#Custom per-block leaf particle types: modid:block=CONIFER or modid:block=BROADLEAF.
+	#Overrides take priority over block tags (including Vanilla Backport tags) and built-in species defaults.
+	#Leave this list empty to use the automatically detected categories.
+	leafTypeOverrides = []
+	#Needle emission chance relative to normal broadleaf particles. 0.85 means 85% as many; 0 disables needles.
+	#Applies only to Living Wind's native canopy particles; particle motion and shared spawn budget remain unchanged.
+	# Default: 0.85
+	# Range: 0.0 ~ 1.0
+	coniferSpawnMultiplier = 0.85
+	#Radius of the lightweight foliage/plant-source sampling area in blocks.
+	# Default: 22
+	# Range: 8 ~ 48
+	radius = 22
+	#How strongly the dedicated leaf particles follow Living Wind. Independent of generic particle wind force.
+	# Default: 1.0
+	# Range: 0.0 ~ 3.0
+	windResponse = 1.0
+
+#Optional integrations with other mods.
+[compatibility]
+
+	#Serene Seasons / Ecliptic Seasons seasonal foliage and snow effects. Uses the existing particle budgets and the current world season.
+	[compatibility.seasonalCompatibility]
+		#Make native leaf, petal, grass and ambient particles react to the current season. Respects normal leaf-source selection and emitter limits.
+		seasonalParticlesEnabled = true
+		#Seasonal foliage/snow variation: 0 = unchanged, 1 = normal seasons, 2 = exaggerated seasonal particles. Native particle limits stay in effect.
+		# Default: 1.0
+		# Range: 0.0 ~ 2.0
+		seasonalParticlesIntensity = 1.0
+		#Boost blowing snow above real snow-covered ground during winter. No snow is generated just from the calendar season.
+		seasonalSnowEnabled = true
+		#Choose falling tree-leaf particles when Ecliptic Seasons is installed.
+		#LIVING_WIND (default): Living Wind only. ECLIPTIC_SEASONS: Ecliptic Seasons only. BOTH: both.
+		#Flowers, flying blooms, grass and other seasonal effects are not changed.
+		#Living Wind's leaves remain enabled if Ecliptic Seasons is not installed.
+		#If Particular Reforged is also installed, its separate leaf-source option still applies.
+		#Allowed Values: LIVING_WIND, ECLIPTIC_SEASONS, BOTH
+		eclipticLeavesSource = "LIVING_WIND"
+
+	#Pretty Rain integration.
+	[compatibility.prettyRain]
+		#Make Pretty Rain's rain and desert dust use Living Wind's synchronized direction and strength.
+		#Rolling shrubs/tumbleweeds use Living Wind direction only and keep Pretty Rain's own speed.
+		#The compatibility code is inert when Pretty Rain is not installed.
+		prettyRainWind = true
+		#Horizontal Pretty Rain rain/dust velocity per unit of Living Wind strength.
+		#Higher values create a steeper wind-driven rain angle during strong wind.
+		#This multiplier does not change rolling shrub/tumbleweed speed.
+		# Default: 0.55
+		# Range: 0.0 ~ 2.0
+		prettyRainWindMultiplier = 0.55
+
+	#Particle Rain integration.
+	[compatibility.particleRain]
+		#Use Living Wind's direction and strength in the official Particle Rain 4.x wind system.
+		#Controls rain, snow, dust and other weather particles; Particle Rain retains its own physics.
+		#Requires Particle Rain 4.x and has no effect when it is absent. Independent of Pretty Rain.
+		particleRainWind = true
+		#Strength of Living Wind sent into the official Particle Rain 4.x wind simulation.
+		#The default (0.55) is calibrated for Particle Rain's cumulative wind physics.
+		#Adjust the tilt and drift without changing Particle Rain's particle density or gravity.
+		# Default: 0.55
+		# Range: 0.0 ~ 2.0
+		particleRainWindMultiplier = 0.55
+
+	#Advanced Chimneys integration.
+	[compatibility.advancedChimneys]
+		#Replace only Advanced Chimneys' outdoor smoke wind with Living Wind direction and strength.
+		#Keeps the mod's original pipes, vents, pumps, chimney movement, collision and buoyancy.
+		#The compatibility code is inactive when Advanced Chimneys is not installed.
+		advancedChimneysOutdoorSmokeWind = true
+
+	#Particular integration.
+	[compatibility.particular]
+		#Choose which mod generates falling tree-leaf particles when Particular is installed.
+		#LIVING_WIND (default): only Living Wind. PARTICULAR: only Particular. BOTH: both.
+		#Living Wind flowers, petals and grass remain enabled regardless of this choice.
+		#If Particular is absent, Living Wind leaves remain active as a fallback.
+		#Allowed Values: LIVING_WIND, PARTICULAR, BOTH
+		fallingLeavesSource = "LIVING_WIND"
+		#When Particular leaves are selected, scale their spawn density with Living Wind strength.
+		#Weak air sheds fewer leaves, while strong wind and gusts shed substantially more.
+		#This is inert when Particular is not installed.
+		particularFallingLeavesWind = true
+		#Particular falling-leaf spawn multiplier at near-calm wind.
+		# Default: 0.15
+		# Range: 0.0 ~ 4.0
+		particularLeavesMinDensity = 0.15
+		#Particular falling-leaf spawn multiplier once wind reaches the configured full-density strength.
+		# Default: 3.0
+		# Range: 0.0 ~ 8.0
+		particularLeavesMaxDensity = 3.0
+		#Altitude-adjusted wind strength at which Particular falling leaves reach maximum spawn density.
+		# Default: 1.2
+		# Range: 0.1 ~ 3.0
+		particularLeavesFullWindStrength = 1.2
+
+	#Experimental Complementary Reimagined r5.9.3 shader bridge, with or without Euphoria 1.10.5.
+	[compatibility.shaderBridge]
+		#Apply compatible Complementary GLSL changes only in memory when shaders load.
+		#Never modifies original shaderpacks. Legacy v1.3.x backups are restored safely if verified.
+		#Restart after changing this option.
+		autoPatchEuphoriaShaders = true
+		#Publish synchronized Living Wind strength, direction, gusts and animation time to shader loaders.
+		#Compatible Complementary packs support grass/leaves waving and Nether Storm drift.
+		enabled = true
+		#Amplitude multiplier for the optional Living Wind shader waving integration.
+		#Set to 0 to make the shader calm when Living Wind is connected.
+		# Default: 1.0
+		# Range: 0.0 ~ 3.0
+		wavingMultiplier = 1.0
+
+	#Fancy World Animations wind-responsive chains and lanterns.
+	[compatibility.fancyWorldAnimations]
+		#Link FWA swing animations to Living Wind strength, direction, gusts and shelter. Requires Fancy World Animations.
+		enabled = true
+		#Overall impact of Living Wind on Fancy World Animations swinging objects. 0 = original FWA motion; 6 = visibly stronger wind-driven swings. Individual chain and lantern intensities are additional multipliers.
+		# Default: 6.0
+		# Range: 0.0 ~ 12.0
+		windImpact = 6.0
+		#Strength of wind-driven chain movement; zero keeps chains mostly still while Living Wind is active.
+		# Default: 1.0
+		# Range: 0.0 ~ 3.0
+		chainIntensity = 1.0
+		#Strength of wind-driven lantern movement.
+		# Default: 1.0
+		# Range: 0.0 ~ 3.0
+		lanternIntensity = 1.0
+
+	#Chimes 2.1.1 optional wind-driven animation and ambient chime sounds.
+	[compatibility.chimes]
+		#Make Chimes sway with Living Wind and vary ambient chiming frequency. Interaction sounds and tied chimes stay managed by Chimes.
+		enabled = true
+		#Multiplier for Chimes swaying in the local wind. 0 disables wind sway while retaining native interaction animations.
+		# Default: 1.0
+		# Range: 0.0 ~ 5.0
+		animationWindMultiplier = 1.0
+		#Strength of local wind's effect on random ambient Chimes sounds. 0 preserves their original ambient sound frequency.
+		# Default: 1.0
+		# Range: 0.0 ~ 3.0
+		soundWindMultiplier = 1.0
+
+	#Swinging Hanging Signs integration; only the ambient sway changes, preserving bump and spring reactions.
+	[compatibility.swingingSigns]
+		#Use Living Wind for swinging hanging signs; their original interaction spring remains unchanged.
+		enabled = true
+		#How strongly wind moves hanging signs. Zero stops ambient wind sway; collisions still work.
+		# Default: 1.0
+		# Range: 0.0 ~ 3.0
+		windMultiplier = 1.0
+
+	#Swinging Lanterns 2.0.4 integration; its physics, collisions and Create motion remain native.
+	[compatibility.swingingLanterns]
+		#Use Living Wind direction and strength to drive Swinging Lanterns' existing wind input. Requires Swinging Lanterns; no extra forces are applied to its physics solver.
+		enabled = true
+		#Multiplier for Living Wind's sway and downwind lean of Swinging Lanterns. Light winds give gentle swings; stronger winds tilt lanterns downwind. Set to 0 for calm wind, or turn integration off for stock behavior.
+		# Default: 1.0
+		# Range: 0.0 ~ 3.0
+		windMultiplier = 1.0
+
+	#Optional Windblown GPU foliage wind bridge (above-water plants only).
+	[compatibility.windblown]
+		#Use Living Wind's direction and intensity for Windblown foliage. Underwater plants retain Windblown's independent current.
+		enabled = true
+		#Intensity multiplier; Windblown's own wind strength slider still applies.
+		# Default: 1.0
+		# Range: 0.0 ~ 5.0
+		windMultiplier = 1.0
+
+	#Interactive Foliage 2.2.0 GPU grass-sway integration.
+	[compatibility.interactiveFoliage]
+		#Use Living Wind direction and strength for Interactive Foliage's grass waving. Enable Weather Wind in Interactive Foliage. Its entity interactions are unchanged.
+		enabled = true
+
+	#Supplementaries wind vane animation compatibility.
+	[compatibility.supplementaries]
+		#Steer Supplementaries wind vanes using Living Wind's synchronized wind direction and local shelter. The original Supplementaries redstone behavior is unchanged.
+		windVane = true
+
+#Client-side wind ambience. Uses the final altitude/shelter-adjusted wind strength.
+[windAudio]
+	#Play Living Wind's wind ambience. Disable to silence all its wind sounds.
+	enabled = true
+	#Overall volume for Living Wind wind, gust and environment sounds. Minecraft Ambient volume still applies.
+	#1.00 is the calibrated normal Living Wind volume.
+	# Default: 1.0
+	# Range: 0.0 ~ 3.0
+	volume = 1.0
+	#Allow occasional gust accents synchronized to server gusts.
+	gustAccents = true
+	#Allow nearby leaves, high mountains, snow and desert sound accents.
+	environmentalAccents = true
+	#Choose which mod supplies wind audio when Ambient Sounds is installed. LIVING_WIND - Plays only Living Wind's wind sounds. AMBIENT_SOUNDS - Plays only Ambient Sounds's wind sounds. BOTH - Plays both wind sound systems.
+	#Allowed Values: LIVING_WIND, AMBIENT_SOUNDS, BOTH
+	ambientSoundsMode = "LIVING_WIND"
+	#Choose which mod supplies wind audio when Dynamic Surroundings is installed.
+	#LIVING_WIND (default): only Living Wind wind. DYNAMIC_SURROUNDINGS: only Dynamic Surroundings wind. BOTH: both wind soundtracks.
+	#Only Dynamic Surroundings biome wind loops are affected; its other sounds, waterfalls and reverb remain active.
+	#This selection is independent of the Ambient Sounds wind-audio mode.
+	#Allowed Values: LIVING_WIND, DYNAMIC_SURROUNDINGS, BOTH
+	dynamicSurroundingsWindMode = "LIVING_WIND"
+
+#Reduce effective visual wind in enclosed spaces.
+[exposure]
+	#Enable location-aware wind shelter for indoor audio and particles. Uses a bounded cache; never scans rooms.
+	reduceWindIndoors = true
+	#How strongly shelter blocks wind (0 = off, 1 = fully sheltered in sealed rooms).
+	# Default: 1.0
+	# Range: 0.0 ~ 1.0
+	shelterEffectiveness = 1.0
+	#Additional wind-audio volume retained when fully indoors (0 = silent, 1 = no extra muffling).
+	# Default: 0.1
+	# Range: 0.0 ~ 1.0
+	indoorAudioAttenuation = 0.1
+	#Reduce shelter block probes per tick; updates around particles may take a little longer.
+	shelterLowCost = false
+	#Account for moving Sable/Aeronautics roofs and walls when fading wind audio around the player. Only checks nearby sub-levels every five active client ticks; requires Sable.
+	sableSublevelShelter = true
+
+#Developer/testing readouts.
+[debug]
+	#Legacy debug HUD toggle for existing configuration files. Use hudMode instead.
+	showHud = false
+	#OFF: no overlay; SIMPLE: wind strength, direction and gust status; ALL: full diagnostic overlay.
+	#Allowed Values: OFF, SIMPLE, ALL
+	hudMode = "OFF"

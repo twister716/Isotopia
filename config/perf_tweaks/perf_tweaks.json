@@ -1,0 +1,7 @@
+{
+  "redstone.enable_by_default": true,
+  "despawn.mob_names_to_persist": [
+    "corpse:corpse"
+  ],
+  "dewpawn.drop_items_of_despawned_mobs": false
+}

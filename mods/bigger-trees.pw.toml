@@ -1,0 +1,13 @@
+name = "Bigger Trees"
+filename = "bigger_vanilla_trees-1.21.1-universal.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "16faa1b0a5033e7129fcd5956e41a1338987d096"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9274834
+project-id = 1013424

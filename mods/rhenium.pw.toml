@@ -1,0 +1,13 @@
+name = "Rhenium"
+filename = "rhenium-1.1.0+neo.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "b562d47e86c03f614a17723142758eeee0e0a606"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9036704
+project-id = 1497566

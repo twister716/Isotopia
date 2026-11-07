@@ -1,0 +1,13 @@
+name = "NTM Continuum Space"
+filename = "ntmspace-neoforge-1.0.1-1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4542d9ca07498adac115312483bbf273346d0945"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9413380
+project-id = 1754149

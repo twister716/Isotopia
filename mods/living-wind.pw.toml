@@ -1,0 +1,13 @@
+name = "Living Wind"
+filename = "LivingWind-NeoForge-1.21.1-v1.3.8.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "791d7dcd2723c8d160acc4a0ff26baf21f3c895d"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9423651
+project-id = 1743716

@@ -1,0 +1,13 @@
+name = "AppliedJS"
+filename = "appliedjs-1.21.1-1.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f464da42ff34b67f9c808f9bd4b6cefe4e020f5e"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8180130
+project-id = 1560749

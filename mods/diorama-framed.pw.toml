@@ -1,0 +1,13 @@
+name = "Diorama framed"
+filename = "dioramaframed-neoforge-1.21.1-0.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "88a7a01e9aceceff7ba6734dabe7c09a4df96142"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9369366
+project-id = 1773681

@@ -1,0 +1,4 @@
+#Whether to automatically focus the search field when opening labeled terminal.
+auto_focus = false
+#Whether to remember the last position of scrollbar in the labeled terminal.
+remember_position = false

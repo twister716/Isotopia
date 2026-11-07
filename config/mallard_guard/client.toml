@@ -1,0 +1,551 @@
+#Mallard Guard config format revision.
+# Default: 130
+# Range: > 0
+configRevision = 130
+
+[display]
+	#Show the parry shield at its configured HUD position.
+	hud = true
+	#Animate the guard icon: a ready outline and parry flashes. Tool blocks flash red, shield blocks emit a short white echo, and the darker icon trembles with repeating echoes while held.
+	shieldEffects = true
+	#Brief white screen flash after parries. Meme flash always uses a full white flash. Blocks never flash.
+	screenFlash = true
+	#When on, the ordinary white screen flash occurs only on perfect parries. Meme flash still shows a white flash for either parry.
+	perfectOnlyFlash = false
+	#Show one of four full-screen meme images alongside a local meme clip. Both start with the white parry flash after hitlag; the image holds 0.5 seconds and fades over 0.2 seconds. Blocks never trigger it.
+	memeFlash = false
+	#A brief grayscale flash lasting as long as the configured hitlag.
+	# Default: 0
+	# Range: 0 ~ 1
+	impactFrames = 0
+	#When enabled, only perfect parries show the grayscale impact image. Regular parries skip it.
+	impactPerfectOnly = true
+	#Brightness of the captured impact image; adjust inside the live preview.
+	# Default: 400
+	# Range: 0 ~ 400
+	impactBrightness = 400
+	#Contrast of the captured impact image; adjust inside the live preview.
+	# Default: 350
+	# Range: 0 ~ 400
+	impactContrast = 350
+	#Darkening of edges in the captured impact image; adjust inside the live preview.
+	# Default: 400
+	# Range: 0 ~ 400
+	impactEdges = 400
+	#Fine roughness in the captured impact image; adjust inside the live preview.
+	# Default: 400
+	# Range: 0 ~ 400
+	impactGrain = 400
+	#RGB channel separation in your still impact image. 0 disables it. Adjust in the preview.
+	# Default: 400
+	# Range: 0 ~ 400
+	impactChromatic = 400
+	#Independent brightness when a mob perfectly parries you; used with Adapt off.
+	# Default: 186
+	# Range: 0 ~ 400
+	mobImpactBrightness = 186
+	#Independent mob impact contrast, with Adapt off.
+	# Default: 110
+	# Range: 0 ~ 400
+	mobImpactContrast = 110
+	#Independent mob impact edge strength, with Adapt off.
+	# Default: 200
+	# Range: 0 ~ 400
+	mobImpactEdges = 200
+	#Independent mob impact grain, with Adapt off.
+	# Default: 101
+	# Range: 0 ~ 400
+	mobImpactGrain = 101
+	#Independent mob impact RGB separation, with Adapt off.
+	# Default: 30
+	# Range: 0 ~ 400
+	mobImpactChromatic = 30
+	#Mob impact images follow your own impact settings. Turn off to customize them independently.
+	mobImpactAdapt = true
+	#Invert the mob impact image, independently of Adapt.
+	mobImpactInvert = false
+	#Animated RGB separation after parries. Smoothly expands and settles. 0 disables it.
+	# Default: 200
+	# Range: 0 ~ 200
+	chromaticIntensity = 200
+	#Duration of animated RGB separation; changing duration also changes animation speed.
+	# Default: 8
+	# Range: 1 ~ 40
+	chromaticTicks = 8
+	#Only perfect parries trigger animated RGB separation when enabled. Off applies it to both parry types.
+	chromaticPerfectOnly = false
+	#Also separate HUD color channels. Off processes the world view before HUD drawing.
+	chromaticHud = true
+	#Regular parry freeze duration, in ticks.
+	#Used when Perfect Only is disabled. 0 disables regular hitlag and impact feedback.
+	# Default: 1
+	# Range: 0 ~ 30
+	regularHitlagTicks = 1
+	#Perfect parry local freeze duration in ticks. 20 ticks = one second. Impact Frame occurs inside this freeze; 0 disables hitlag.
+	# Default: 3
+	# Range: 0 ~ 30
+	hitlagTicks = 3
+	#Strength of the brief screen flash, as a percentage. 0 disables it.
+	# Default: 10
+	# Range: 0 ~ 100
+	flashStrength = 10
+	#Perfect-parry camera shake strength. 0 disables motion. Regular strength has its own setting.
+	# Default: 85
+	# Range: 0 ~ 100
+	shakeStrength = 85
+	#Shake your view after a parry.
+	# Default: 1
+	# Range: 0 ~ 1
+	cameraShakeEnabled = 1
+	#Add a colored fringe around the edges of your view.
+	# Default: 1
+	# Range: 0 ~ 1
+	chromaticEnabled = 1
+	#Briefly freeze your view on a parry impact.
+	# Default: 1
+	# Range: 0 ~ 1
+	hitlagEnabled = 1
+	#Only perfect parries freeze your view.
+	# Default: 0
+	# Range: 0 ~ 1
+	hitlagPerfectOnly = 0
+	#Show this part of the icon animation.
+	# Default: 0
+	# Range: 0 ~ 1
+	icon0Component0 = 0
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon0Component1 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon0Component2 = 1
+	#Show this part of the icon animation.
+	# Default: 0
+	# Range: 0 ~ 1
+	icon1Component0 = 0
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon1Component1 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon1Component2 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon1Component3 = 1
+	#Show this part of the icon animation.
+	# Default: 0
+	# Range: 0 ~ 1
+	icon2Component0 = 0
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon2Component1 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon2Component2 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon2Component3 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon3Component0 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon3Component1 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon3Component2 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon3Component3 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon4Component0 = 1
+	#Show this part of the icon animation.
+	# Default: 1
+	# Range: 0 ~ 1
+	icon4Component2 = 1
+	#Invert the impact image colors.
+	# Default: 0
+	# Range: 0 ~ 1
+	playerImpactInvert = 0
+	#Brightness of the regular-parry flash.
+	# Default: 10
+	# Range: 0 ~ 100
+	regularFlashIntensity = 10
+	#Camera shake strength after a regular parry.
+	# Default: 65
+	# Range: 0 ~ 100
+	regularShakeStrength = 65
+	#Perfect-parry camera shake lifetime. 0 disables it.
+	# Default: 12
+	# Range: 0 ~ 40
+	perfectShakeTicks = 12
+	#Regular-parry camera shake lifetime. 0 disables it.
+	# Default: 8
+	# Range: 0 ~ 40
+	regularShakeTicks = 8
+	#Only perfect parries shake the camera.
+	# Default: 0
+	# Range: 0 ~ 1
+	shakePerfectOnly = 0
+	#How long regular-parry color separation lasts.
+	# Default: 4
+	# Range: 1 ~ 40
+	regularChromaticTicks = 4
+	#Position of the shield icon.
+	# Default: 6
+	# Range: 0 ~ 9
+	iconAnchor = 6
+	#Horizontal position of the shield icon.
+	# Default: 5000
+	# Range: 0 ~ 10000
+	iconX = 5000
+	#Vertical position of the shield icon.
+	# Default: 5000
+	# Range: 0 ~ 10000
+	iconY = 5000
+	#Space between the icon and nearby HUD elements or screen edges.
+	# Default: 6
+	# Range: 0 ~ 80
+	iconGap = 6
+	#Size of the shield icon and its reactions.
+	# Default: 90
+	# Range: 50 ~ 200
+	iconSize = 90
+	#Strength of the shield icon's expansion, shake, highlight and echo.
+	# Default: 100
+	# Range: 0 ~ 200
+	hudStrength = 100
+
+	[display.stunEcho]
+		#Show afterimages around stunned entities.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+		#How long the afterimage lasts, up to the stun duration.
+		# Default: 8
+		# Range: 0 ~ 200
+		ticks = 8
+		#Visibility of the stun afterimage.
+		# Default: 45
+		# Range: 0 ~ 100
+		opacity = 45
+		#How far the afterimage spreads from the entity.
+		# Default: 25
+		# Range: 0 ~ 200
+		expansion = 25
+
+[animation]
+	#Punchy's walking and sprint arm animations were automatically disabled once. You may re-enable them in Punchy's menu; Mallard Guard will not override later edits.
+	punchyMovementDefaultsApplied = false
+	#Whether the automatic Shield Expansion Item Only Mode notice has appeared on this client.
+	shieldExpansionNoticeShown = false
+	#Whether the Simply Swords keybind notice has already appeared in chat on this client.
+	simplySwordsNoticeShown = false
+	#Show the simple blocking pose on yourself and other guarding players and humanoid mobs. Off hides this pose for everyone on your client; server guard mechanics do not change.
+	thirdPersonGuardPose = true
+	#Use the simple first-person weapon pose when Punchy integration is disabled. It also serves as the fallback when Punchy is unavailable. Shields use their own pose.
+	firstPersonGuardPose = true
+
+[audio]
+	#Your own master playback level for Mallard Guard sounds, including the meme clip. 100% is the recorded level before other volume settings; 0% mutes it. Levels above 100% use a louder recording where available.
+	# Default: 100
+	# Range: 0 ~ 200
+	masterVolume = 100
+	#Your playback volume for regular parries and regular fall parries and their meme clip; multiplied by the master level.
+	# Default: 65
+	# Range: 0 ~ 200
+	parryVolume = 65
+	#Your playback volume for perfect parries, including shield and enabled perfect fall parries, and their meme clip; multiplied by the master level.
+	# Default: 130
+	# Range: 0 ~ 200
+	perfectVolume = 130
+	#Your playback volume for blocks and regular shield parries; multiplied by the master level.
+	# Default: 65
+	# Range: 0 ~ 200
+	blockVolume = 65
+
+[particles]
+	#Favor forward sparks on shield parries.
+	# Default: 1
+	# Range: 0 ~ 1
+	shieldForwardBias = 1
+	#Amount of sparks, debris and tracers. Perfect parries add 20%.
+	# Default: 100
+	# Range: 0 ~ 300
+	intensity = 100
+
+	[particles.flyingSparks]
+		#Regular-parry spark amount as a percentage of 100 sparks. Zero disables regular-parry sparks. Electric and animated appearances share this amount.
+		# Default: 6
+		# Range: 0 ~ 100
+		baseIntensity = 6
+		#Extra percentage of the selected amount per intercepted damage point. Zero disables damage scaling. Counts are capped at 512 per burst; projectile hits use an estimate when exact damage is unavailable.
+		# Default: 2
+		# Range: 0 ~ 100
+		damageScaling = 2
+		#Color of flying sparks.
+		# Default: 16777215
+		# Range: 0 ~ 16777215
+		baseColor = 16777215
+		#Particle size. Zero hides this particle type.
+		# Default: 80
+		# Range: 0 ~ 400
+		size = 80
+		#How much spark sizes vary. Zero gives them all the same size.
+		# Default: 50
+		# Range: 0 ~ 100
+		sizeVariance = 50
+		#How long particles last.
+		# Default: 20
+		# Range: 1 ~ 80
+		lifetimeTicks = 20
+		#Show this particle effect.
+		# Default: 0
+		# Range: 0 ~ 1
+		enabled = 0
+
+	[particles.dotStreaks]
+		#Regular-parry spark debris amount as a percentage of 100 debris sparks. Zero disables regular-parry spark debris.
+		# Default: 6
+		# Range: 0 ~ 100
+		baseIntensity = 6
+		#Extra percentage of the selected debris amount per intercepted damage point. Zero disables scaling. Flying Sparks and Spark Debris share the burst and active budgets.
+		# Default: 2
+		# Range: 0 ~ 100
+		damageScaling = 2
+		#Color of spark debris.
+		# Default: 16766124
+		# Range: 0 ~ 16777215
+		baseColor = 16766124
+		#Particle size. Zero hides this particle type.
+		# Default: 100
+		# Range: 0 ~ 400
+		size = 100
+		#How long particles last.
+		# Default: 12
+		# Range: 1 ~ 80
+		lifetimeTicks = 12
+		#Show this particle effect.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+
+	[particles.shootingSparks]
+		#Base amount. 100% produces 100 tracer heads; 0% disables Spark Tracers completely.
+		# Default: 6
+		# Range: 0 ~ 100
+		baseIntensity = 6
+		#Increase amount per damage point: 10% × 5 damage adds 50%. 0% adds nothing. All particles share burst and active head caps.
+		# Default: 2
+		# Range: 0 ~ 100
+		damageScaling = 2
+		#Starting color of tracers and the impact flash.
+		# Default: 16766900
+		# Range: 0 ~ 16777215
+		startColor = 16766900
+		#Middle color of tracers and the impact flash.
+		# Default: 16753995
+		# Range: 0 ~ 16777215
+		middleColor = 16753995
+		#Final color of tracers and the impact flash.
+		# Default: 8816262
+		# Range: 0 ~ 16777215
+		endColor = 8816262
+		#Particle size. Zero hides this particle type.
+		# Default: 125
+		# Range: 0 ~ 400
+		overallSize = 125
+		#How long tracer tails last.
+		# Default: 4
+		# Range: 1 ~ 4
+		trailTicks = 4
+		#How long particles last.
+		# Default: 8
+		# Range: 1 ~ 80
+		lifetimeTicks = 8
+		#Show this particle effect.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+
+	[particles.centerImpact]
+		#Size of the animated impact flash.
+		# Default: 200
+		# Range: 0 ~ 400
+		size = 200
+		#How long the impact animation lasts. Longer plays more slowly.
+		# Default: 8
+		# Range: 1 ~ 40
+		durationTicks = 8
+		#Visibility of the impact flash.
+		# Default: 100
+		# Range: 0 ~ 100
+		opacity = 100
+		#How fast the impact flash spins.
+		# Default: 45
+		# Range: 0 ~ 720
+		spinSpeed = 45
+		#Show this particle effect.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+
+	[particles.bloom]
+		#Add colored glow around parry particles.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+		#Brightness of the glow around particles.
+		# Default: 20
+		# Range: 0 ~ 300
+		strength = 20
+		#How far the glow spreads around particles.
+		# Default: 55
+		# Range: 25 ~ 300
+		spread = 55
+		#How colorful the glow is. Zero makes it grayscale.
+		# Default: 100
+		# Range: 0 ~ 200
+		saturation = 100
+		#Brightness of particles and the bloom they produce.
+		# Default: 50
+		# Range: 0 ~ 300
+		brightness = 50
+
+	[shieldReactions.parry]
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		expansion = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		shake = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		flash = 100
+		#Reaction lifetime in ticks. 20 ticks = one second.
+		# Default: 4
+		# Range: 1 ~ 40
+		duration = 4
+
+	[shieldReactions.perfect]
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		expansion = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		shake = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		flash = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		echo = 100
+		#Reaction lifetime in ticks. 20 ticks = one second.
+		# Default: 9
+		# Range: 1 ~ 40
+		duration = 9
+
+	[shieldReactions.block]
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		expansion = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		shake = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		flash = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		echo = 100
+		#Reaction lifetime in ticks. 20 ticks = one second.
+		# Default: 5
+		# Range: 1 ~ 40
+		duration = 5
+
+	[shieldReactions.guardBreak]
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		expansion = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		shake = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		flash = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		echo = 100
+		#Reaction lifetime in ticks. 20 ticks = one second.
+		# Default: 5
+		# Range: 1 ~ 40
+		duration = 5
+
+	[shieldReactions.recharge]
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 1
+		# Range: 0 ~ 1
+		enabled = 1
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		expansion = 100
+		#Reaction control. 100% retains the default effect; 0 disables this component.
+		# Default: 100
+		# Range: 0 ~ 200
+		flash = 100
+		#Reaction lifetime in ticks. 20 ticks = one second.
+		# Default: 6
+		# Range: 1 ~ 40
+		duration = 6
+
+[debug]
+	#Local diagnostic flags, set from the Diagnostics page. 16384 is the master switch; without it nothing is logged.
+	# Default: 0
+	# Range: 0 ~ 32767
+	logging = 0

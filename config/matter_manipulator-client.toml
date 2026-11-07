@@ -1,0 +1,57 @@
+[interface]
+	#Matter Manipulator GUI accent in #RRGGBB format.
+	accentColor = "#3C8527"
+	#Matter Manipulator button color in #RRGGBB format.
+	buttonColor = "#D0D1D4"
+	#Matter Manipulator panel and border tint in #RRGGBB format.
+	interfaceColor = "#48494A"
+	#Matter Manipulator panel opacity in percent; 0 shows the world through the panel.
+	# Default: 100
+	# Range: 0 ~ 100
+	opacity = 100
+
+[preview]
+	#Render cable pathfinder visited/frontier diagnostics in the world.
+	showCableSearchProgress = false
+	#Show cable path search completion and failure messages in chat.
+	cableSearchMessages = true
+	#Maximum non-cable ghost blocks prepared for world and GUI previews. Larger previews render with less detail (simplified blocks above 10000, occupancy bricks above 50000).
+	# Default: 131072
+	# Range: 256 ~ 262144
+	maxPreviewBlocks = 131072
+	#Maximum cable or pipe ghost blocks prepared for world and GUI previews.
+	# Default: 8192
+	# Range: 256 ~ 131072
+	maxCablePreviewBlocks = 8192
+	#Largest exchange, copy or move source box (in blocks) the preview inspects. It is read over several frames; a larger box previews its bounds only.
+	# Default: 262144
+	# Range: 256 ~ 16777216
+	maxPreviewInspections = 262144
+	#Cable pathfinder work performed per client tick while preparing a preview.
+	# Default: 512
+	# Range: 16 ~ 65536
+	cablePathStepsPerTick = 512
+	#Ticks between refreshes for world-sensitive exchange, copy, and move previews.
+	# Default: 10
+	# Range: 1 ~ 200
+	worldPreviewRefreshTicks = 10
+	#Maximum visited-node boxes drawn by cable search diagnostics.
+	# Default: 4096
+	# Range: 1 ~ 65536
+	maxSearchProgressBoxes = 4096
+	#Maximum frontier boxes drawn by cable search diagnostics.
+	# Default: 512
+	# Range: 1 ~ 16384
+	maxSearchFrontierBoxes = 512
+	#Maximum animated direction markers drawn along cable previews.
+	# Default: 512
+	# Range: 1 ~ 8192
+	maxCableFlowMarkers = 512
+	#Length in blocks of the world-preview axis rulers.
+	# Default: 16
+	# Range: 1 ~ 128
+	rulerLength = 16
+	#Maximum alpha of rendered ghost block models.
+	# Default: 128
+	# Range: 16 ~ 255
+	ghostAlpha = 128

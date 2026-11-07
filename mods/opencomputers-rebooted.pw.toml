@@ -1,0 +1,13 @@
+name = "OpenComputers: Rebooted"
+filename = "opencomputers-1.9.4-5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "9a57f44604ea327bbe4d53c9fd37cdf87adfbf7d"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8858759
+project-id = 1634364

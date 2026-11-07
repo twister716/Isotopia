@@ -1,0 +1,20 @@
+#Internal config schema revision.
+# Default: 130
+# Range: > 0
+configRevision = 130
+#Use Punchy animations for eligible guard items, falling back to the simple pose when unavailable.
+enabled = true
+#Hold the Punchy pose briefly after hitlag. No extra delay applies without hitlag; 0 disables it.
+# Default: 50
+# Range: 0 ~ 1000
+releaseDelayMillis = 50
+#Preset 1: enabled, active hand position/rotation, supporting hand position/rotation, weapon position/rotation, raise/lower milliseconds, reserved legacy curve slot, spring amount. Positions use tenths of a model pixel; rotations use degrees. Guarding and returns use a spring; parried entry uses an asymptotic approach.
+pose1 = "1,17,13,-28,7,-14,74,-3,34,3,38,28,-39,0,0,0,36,-7,-19,120,360,4,200"
+#Preset 2: enabled, active hand position/rotation, supporting hand position/rotation, weapon position/rotation, raise/lower milliseconds, reserved legacy curve slot, spring amount. Positions use tenths of a model pixel; rotations use degrees. Guarding and returns use a spring; parried entry uses an asymptotic approach.
+pose2 = "1,91,10,-30,22,-6,-10,26,21,-20,16,-21,-18,0,0,0,55,9,13,120,360,4,200"
+#Preset 3: enabled, active hand position/rotation, supporting hand position/rotation, weapon position/rotation, raise/lower milliseconds, reserved legacy curve slot, spring amount. Positions use tenths of a model pixel; rotations use degrees. Guarding and returns use a spring; parried entry uses an asymptotic approach.
+pose3 = "1,-10,100,-12,-23,11,54,-22,36,-10,31,-5,-46,0,0,0,38,-29,11,120,360,4,200"
+#Preset 4: enabled, active hand position/rotation, supporting hand position/rotation, weapon position/rotation, raise/lower milliseconds, reserved legacy curve slot, spring amount. Positions use tenths of a model pixel; rotations use degrees. Guarding and returns use a spring; parried entry uses an asymptotic approach.
+pose4 = "0,68,19,-24,4,-33,80,-18,-9,3,-26,25,-6,0,0,0,24,180,10,120,360,4,200"
+#Preset 5: enabled, active hand position/rotation, supporting hand position/rotation, weapon position/rotation, raise/lower milliseconds, reserved legacy curve slot, spring amount. Positions use tenths of a model pixel; rotations use degrees. Guarding and returns use a spring; parried entry uses an asymptotic approach.
+pose5 = "1,4,3,-58,-15,-12,51,-26,3,25,-28,24,-20,0,0,0,0,-8,10,120,360,4,200"

@@ -1,0 +1,13 @@
+name = "Freecam (Fair-Play)"
+filename = "legacyfreecam-neoforge-2.0.0-mc1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "de811de026835bef660ec6476e21a182c58dc7e3"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9424257
+project-id = 1380795

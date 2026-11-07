@@ -1,0 +1,18 @@
+#Zoom the minimap in when you are indoors or underground (caves). Never applies in the Nether or the End.
+indoorZoomEnabled = false
+#Your current minimap zoom is multiplied by this while indoors.
+# Default: 1.5
+# Range: 1.0 ~ 4.0
+indoorZoomMultiplier = 1.5
+#Zoom transition time in ms. 0 is instant.
+# Default: 400
+# Range: 0 ~ 2000
+transitionMs = 400
+#How long you must be under a roof before zooming in.
+# Default: 300
+# Range: 0 ~ 3000
+enterDelayMs = 300
+#How long you must be outside before zooming back out.
+# Default: 800
+# Range: 0 ~ 5000
+exitDelayMs = 800

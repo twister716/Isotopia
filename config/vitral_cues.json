@@ -1,0 +1,63 @@
+{
+  "_readme": "Combat Cues settings. Also in game: Mods \u003e Combat Cues \u003e Config (Fabric: with Mod Menu). Each screen effect: enabled, intensity 0-3, size 0-3, altColor (colour-blind palette). lowHealthHearts: the vignette starts at this many hearts (1-10). heavyHitPercent: a single hit taking at least this % of max health cracks the glass (10-90). reduceFlashes: soft fades instead of flashes.",
+  "hitmarker": true,
+  "damageDirection": true,
+  "lowHealth": {
+    "enabled": true,
+    "intensity": 2,
+    "size": 1,
+    "altColor": false
+  },
+  "fire": {
+    "enabled": true,
+    "intensity": 2,
+    "size": 1,
+    "altColor": false
+  },
+  "frost": {
+    "enabled": true,
+    "intensity": 2,
+    "size": 1,
+    "altColor": false
+  },
+  "poison": {
+    "enabled": true,
+    "intensity": 2,
+    "size": 1,
+    "altColor": false
+  },
+  "wither": {
+    "enabled": true,
+    "intensity": 2,
+    "size": 1,
+    "altColor": false
+  },
+  "drowning": {
+    "enabled": true,
+    "intensity": 2,
+    "size": 1,
+    "altColor": false
+  },
+  "magic": {
+    "enabled": true,
+    "intensity": 2,
+    "size": 1,
+    "altColor": false
+  },
+  "heavyHit": {
+    "enabled": true,
+    "intensity": 2,
+    "size": 1,
+    "altColor": false
+  },
+  "heal": {
+    "enabled": true,
+    "intensity": 1,
+    "size": 1,
+    "altColor": false
+  },
+  "lowHealthHearts": 3,
+  "heavyHitPercent": 30,
+  "reduceFlashes": false,
+  "hideInCreative": true
+}

@@ -1,0 +1,13 @@
+name = "Fast Recipe Search"
+filename = "fastrecipesearch-1.21.1-26.8.4-neoforge.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "dfbcc073e7192b1ce405bd478d1275aec1aad5b0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8737018
+project-id = 1406509
