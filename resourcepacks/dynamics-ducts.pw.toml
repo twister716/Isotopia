@@ -1,0 +1,13 @@
+name = "Dynamics & Ducts"
+filename = "Dynamics and Ducts.zip"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "39aa7eb5e0a33629a3b4dbca16ec094344e47a5f"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 8214626
+project-id = 1568454

@@ -1,0 +1,80 @@
+#Allow arrows to damage glass; turn off to keep arrow hits harmless.
+arrows = true
+#Allow other projectiles to damage glass; turn off to keep their hits harmless.
+projectiles = true
+#Allow explosions to damage glass; turn off to keep normal explosion behavior.
+explosions = true
+#Allow short left-click taps to crack glass; turn off to disable melee cracks.
+melee = false
+#Glass toughness multiplier; higher values require stronger hits.
+# Default: 1.0
+# Range: 0.1 ~ 10.0
+strength = 1.0
+#Hole size multiplier; higher values make larger openings.
+# Default: 1.0
+# Range: 0.1 ~ 4.0
+holeSize = 1.0
+#Shatter fully when the percent of glass remaining falls below this value.
+# Default: 25.0
+# Range: 0.0 ~ 100.0
+shatterThreshold = 25.0
+#Allow glass drops on final break; turn off to suppress those drops.
+finalBreakDrops = true
+#Restore damaged glass over time; turn on to enable repairs.
+healing = false
+#Repair delay in ticks at 20 ticks per second; higher values delay repairs.
+# Default: 1200
+# Range: 1 ~ 1728000
+healDelayTicks = 1200
+#Repair interval in ticks at 20 ticks per second; higher values slow repairs.
+# Default: 200
+# Range: 1 ~ 72000
+healIntervalTicks = 200
+#Crack limit in impacts; higher values allow more cracks before glass stops gaining detail.
+# Default: 16
+# Range: 1 ~ 64
+maxWebs = 16
+#Spread heavy damage to nearby panes; turn on to crack neighboring glass.
+propagation = false
+#Arrow damage multiplier; higher values strengthen hits and zero disables damage.
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+arrowStrengthMultiplier = 1.0
+#Trident damage multiplier; higher values strengthen hits and zero disables damage.
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+tridentStrengthMultiplier = 1.0
+#Projectile damage multiplier; higher values strengthen hits and zero disables damage.
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+projectileStrengthMultiplier = 1.0
+#Explosion damage multiplier; higher values strengthen hits and zero disables damage.
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+explosionStrengthMultiplier = 1.0
+#Melee damage multiplier; higher values strengthen hits and zero disables damage.
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+meleeStrengthMultiplier = 1.0
+#Fist damage multiplier; higher values strengthen hits and zero disables damage.
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+fistStrengthMultiplier = 1.0
+#Respect cancelled player block-break checks; turn off to bypass claim protection.
+respectProtection = true
+#Blocked glass IDs or tags prefixed with #; adding entries prevents their damage.
+glassBlacklist = []
+#Allowed glass IDs or tags prefixed with #; leave empty to allow all eligible glass.
+glassWhitelist = []
+#Blocked dimension IDs; adding entries prevents glass damage in those worlds.
+dimensionBlacklist = []
+#Use glass integrity for TaCZ bullets, overriding TaCZ glass breaking; turn off to keep TaCZ behavior.
+taczCompat = true
+#Bullet glass toughness multiplier; higher values need more hits to break glass.
+# Default: 0.7
+# Range: 0.1 ~ 10.0
+bulletGlassToughness = 0.7
+#TaCZ glass damage multiplier; higher values strengthen hits and zero disables damage.
+# Default: 1.0
+# Range: 0.0 ~ 10.0
+taczDamageMultiplier = 1.0

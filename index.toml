@@ -78,7 +78,7 @@ hash = "09f0eda4f47d2dc321e9379b59a0f5e0c6809a51ba299ee50249e64dc7ba8943"
 
 [[files]]
 file = "config/appleskin-client.toml"
-hash = "7127a276c7305371397053cd8d0833e6825c828850626e4067b9fed1430ed217"
+hash = "9379f6c03a5a82524b94a6390b8796d10d5e392ca4979cfa7f506fc2e3464303"
 
 [[files]]
 file = "config/appliedcolorapplicators-common.toml"
@@ -98,7 +98,7 @@ hash = "dee286337f4d870b63bb0a4c8d9add6385b363f1edd04209e6a74ff9fd7d9d6e"
 
 [[files]]
 file = "config/asyncparticles/asyncparticles-mixin.properties"
-hash = "0d80a3fbd71c133d3784ed520253b09be4dbd349982bbf03fe42758a76b1c1a7"
+hash = "a801a49de07f056d484d94bfa9bec04fc4cdea8e479063a0c667eb93ffdcc914"
 
 [[files]]
 file = "config/asyncparticles/asyncparticles.json"
@@ -135,6 +135,14 @@ hash = "1175dbf9cd2e7c91b1c852a51e3c0203c68484917e877465b283e2370ad62864"
 [[files]]
 file = "config/betterfortresses/neoforge-1_21/itemframes.json"
 hash = "8951cbbeff26aea602ccbddb7c4ef2e2ab62e32588a6eb8057e661b214cd0fce"
+
+[[files]]
+file = "config/betterglassbreaking-client.toml"
+hash = "ccbbd76bd65ae6c6a175621d095f258090cf57bb127fafc6216b101bc9ac8171"
+
+[[files]]
+file = "config/betterglassbreaking-server.toml"
+hash = "729a714c912de6ca497961dfe810b94ea2542d7b784c50be1b25733015966929"
 
 [[files]]
 file = "config/bettersnowyfeatures-common.toml"
@@ -510,7 +518,7 @@ hash = "1a3bee95a96f082b8e97cccbce30c1efe1352b616c78e06d5884fd4475668add"
 
 [[files]]
 file = "config/defaultoptions-common.toml"
-hash = "a1d7ce1bf07d787b9468423697c89a096ed7198d2b74dd55f47b709adf76352a"
+hash = "e669890a4b79c4790131da772c0025a92db460c2bd46a439df928d67dd172bf7"
 
 [[files]]
 file = "config/defaultoptions/keybindings.txt"
@@ -590,7 +598,7 @@ hash = "97461c56c8cd7ba14756413561a57aa83c21d6f0559850a593a508c3d692bd93"
 
 [[files]]
 file = "config/fabric/indigo-renderer.properties"
-hash = "29eb03c4bc8a5a568ab0a1b5e6c255f18ab40421ed48051da911b54e942a844d"
+hash = "fe502fe140f382c7acd67a7fc03051fdf084ebf1a243807eddee8a2afe05d25d"
 
 [[files]]
 file = "config/fallingtrees/client.json"
@@ -718,7 +726,7 @@ hash = "c324c08dff8c943e8afdd35822a02478e89451efd407176c6ebaff72a9127cbc"
 
 [[files]]
 file = "config/ftbchunks-client.snbt"
-hash = "b3b8857c01f8dc34e9a21fa75b95eb63fcc78724f0a3dc4ca2ea8e031ba9a640"
+hash = "29f22f5c153ff8a5571e427539e07912df226e4334a9e3e1a4912650970a4f4d"
 
 [[files]]
 file = "config/ftbchunks-world.snbt"
@@ -842,7 +850,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "cc4f8ae6e97cf24cc414bf6623f5046bd8e050c8aa60abad950955bb12ce8ecf"
+hash = "6a2e6e767812e48089b395cbe6db14eae87081fb05f962b436c1504e8f055530"
 
 [[files]]
 file = "config/ironfurnaces-common.toml"
@@ -1422,7 +1430,7 @@ hash = "0a282f3623f7f9443a1d10b5768865f69e58b74e000dcfb4f40399626b7a6124"
 
 [[files]]
 file = "config/upgraded_chests-client.properties"
-hash = "8889b4246d3e8cb70f75f4c4bc6f046a007a36091f79fe0ec6a555a4823dd7e7"
+hash = "74d0c41ce5f2218dbebf2c99763f7c13d5c6c4befb6eeaf3a01902d5fcafb82b"
 
 [[files]]
 file = "config/upgraded_chests-server.toml"
@@ -1478,7 +1486,7 @@ hash = "121b93764159be6fb7dab523b29a844e2bb78400ce8c48f52135a097e9b0006e"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "f0a2772ecebec89a4e25afd86bef58a5484621cd5b994d99d074a214928debfb"
+hash = "5874c943c826af81477ae82b0e98bfd68b2c638124ac66eb5d10426d6b29a725"
 
 [[files]]
 file = "defaultconfigs/certain_questing_additions/client-config.snbt"
@@ -2677,6 +2685,11 @@ metafile = true
 [[files]]
 file = "mods/zfastnoise.pw.toml"
 hash = "4652700ee06b6435101176e2b633dfdddb46fc16cbdc376417e4e00ad26468f6"
+metafile = true
+
+[[files]]
+file = "resourcepacks/dynamics-ducts.pw.toml"
+hash = "1cc38db4dc08e4108ecde71e367d7aca034767dd19ef03efe6994e3889ca226b"
 metafile = true
 
 [[files]]
