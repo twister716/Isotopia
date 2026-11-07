@@ -10,6 +10,7 @@
 !/config
 !/defaultconfigs
 !/kubejs
+!/LICENSE
 
 # jar本体は大きく、CurseForgeから取得できるので管理しない
 /mods/*.jar

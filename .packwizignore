@@ -6,6 +6,7 @@
 !/config
 !/defaultconfigs
 !/kubejs
+!/LICENSE
 
 # jar本体はCurseForgeからダウンロードされるので、.pw.tomlだけを入れる
 /mods/*.jar
