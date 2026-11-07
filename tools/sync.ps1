@@ -1,5 +1,6 @@
 ﻿# CurseForgeアプリの記録 (minecraftinstance.json) を正解として、
-# mods フォルダの jar と .pw.toml をそろえるスクリプト
+# mods フォルダ（Mod）と resourcepacks フォルダ（リソースパック）の
+# 本体ファイルと .pw.toml をそろえるスクリプト
 #
 #   1. 記録にあるのに .pw.toml が無いMod      → .pw.toml を作る
 #   2. Modが更新されていた (file-idが違う)    → .pw.toml を書き直す
@@ -10,14 +11,15 @@
 $ErrorActionPreference = "Stop"
 $instance = Split-Path -Parent $PSScriptRoot
 $modsDir = Join-Path $instance "mods"
+$packsDir = Join-Path $instance "resourcepacks"
 $utf8NoBom = New-Object System.Text.UTF8Encoding $false
 
 $json = Get-Content (Join-Path $instance "minecraftinstance.json") -Raw -Encoding UTF8 | ConvertFrom-Json
 $addons = $json.installedAddons
 
-# 既存の .pw.toml を project-id ごとに読み込む
+# 既存の .pw.toml を project-id ごとに読み込む（mods と resourcepacks の両方）
 $tomls = @{}
-foreach ($t in Get-ChildItem $modsDir -Filter *.pw.toml) {
+foreach ($t in Get-ChildItem $modsDir, $packsDir -Filter *.pw.toml -ErrorAction SilentlyContinue) {
     $text = [System.IO.File]::ReadAllText($t.FullName)
     if ($text -match 'project-id\s*=\s*(\d+)') {
         $projectId = $Matches[1]
@@ -39,11 +41,22 @@ foreach ($addon in $addons) {
     $projectIds[$projectId] = $true
     $sha1 = ($file.hashes | Where-Object { $_.type -eq 1 } | Select-Object -First 1).value
 
+    # packageType 3 はリソースパック。それ以外はModとして扱う
+    if ($addon.packageType -eq 3) {
+        $targetDir = $packsDir
+        $side = "client"
+    }
+    else {
+        $targetDir = $modsDir
+        $side = "both"
+    }
+    New-Item -ItemType Directory -Force $targetDir | Out-Null
+
     # ---- .pw.toml を作る / 書き直す ----
     $content = @"
 name = "$(Escape-Toml $addon.name)"
 filename = "$(Escape-Toml $file.fileNameOnDisk)"
-side = "both"
+side = "$side"
 
 [download]
 hash-format = "sha1"
@@ -60,7 +73,7 @@ project-id = $projectId
     if (-not $tomls.ContainsKey($projectId)) {
         # ファイル名はCurseForgeのURL末尾 (例: applied-energistics-2) を使う
         $slug = ($addon.webSiteURL.TrimEnd('/') -split '/')[-1]
-        $path = Join-Path $modsDir "$slug.pw.toml"
+        $path = Join-Path $targetDir "$slug.pw.toml"
         [System.IO.File]::WriteAllText($path, $content, $utf8NoBom)
         $created += $addon.name
     }
@@ -69,8 +82,8 @@ project-id = $projectId
         $updated += $addon.name
     }
 
-    # ---- jar が無ければダウンロード ----
-    $jar = Join-Path $modsDir $file.fileNameOnDisk
+    # ---- 本体 (jar / zip) が無ければダウンロード ----
+    $jar = Join-Path $targetDir $file.fileNameOnDisk
     if (-not (Test-Path -LiteralPath $jar)) {
         try {
             Invoke-WebRequest -Uri $file.downloadUrl -OutFile $jar -UseBasicParsing
@@ -110,7 +123,7 @@ Write-Host ""
 Show-List "作った .pw.toml" $created
 Show-List "更新した .pw.toml" $updated
 Show-List "削除した .pw.toml" $removed
-Show-List "ダウンロードした jar" $downloaded
+Show-List "ダウンロードしたファイル" $downloaded
 if ($failed.Count -gt 0) {
     Write-Host "失敗したもの:" -ForegroundColor Red
     $failed | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
@@ -118,5 +131,9 @@ if ($failed.Count -gt 0) {
 
 $jarCount = (Get-ChildItem $modsDir -Filter *.jar).Count
 $tomlCount = (Get-ChildItem $modsDir -Filter *.pw.toml).Count
+$zipCount = (Get-ChildItem $packsDir -Filter *.zip -ErrorAction SilentlyContinue).Count
+$packTomlCount = (Get-ChildItem $packsDir -Filter *.pw.toml -ErrorAction SilentlyContinue).Count
 Write-Host ""
-Write-Host "CurseForgeの記録: $($addons.Count) 個 / jar: $jarCount 個 / .pw.toml: $tomlCount 個" -ForegroundColor Cyan
+Write-Host "CurseForgeの記録: $($addons.Count) 個" -ForegroundColor Cyan
+Write-Host "  Mod           : jar $jarCount 個 / .pw.toml $tomlCount 個" -ForegroundColor Cyan
+Write-Host "  リソースパック: zip $zipCount 個 / .pw.toml $packTomlCount 個" -ForegroundColor Cyan

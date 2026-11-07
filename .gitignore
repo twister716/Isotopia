@@ -10,10 +10,15 @@
 !/config
 !/defaultconfigs
 !/kubejs
+!/resourcepacks
 !/LICENSE
 
 # jar本体は大きく、CurseForgeから取得できるので管理しない
 /mods/*.jar
+
+# リソースパックも、zip本体は管理せず .pw.toml だけを管理する
+/resourcepacks/*
+!/resourcepacks/*.pw.toml
 
 # configの中でModが自動で作るもの（キャッシュ・一時ファイル・履歴・個人の記録）
 /config/emi-accelerator/stack-cache.emic

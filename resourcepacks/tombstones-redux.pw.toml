@@ -1,0 +1,13 @@
+name = "Corail Tombstones Redux"
+filename = "Tombstones redux 1.20 v3.zip"
+side = "client"
+
+[download]
+hash-format = "sha1"
+hash = "c3c50185a0711bf13f4d4a8d84f308f677558f25"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6273412
+project-id = 579058

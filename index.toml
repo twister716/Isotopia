@@ -2678,3 +2678,18 @@ metafile = true
 file = "mods/zfastnoise.pw.toml"
 hash = "4652700ee06b6435101176e2b633dfdddb46fc16cbdc376417e4e00ad26468f6"
 metafile = true
+
+[[files]]
+file = "resourcepacks/fusion-connected-blocks.pw.toml"
+hash = "1939e0bb5fc6f9fcf22800c96b663034078f02c3b9b3532b876693f8bc6488e0"
+metafile = true
+
+[[files]]
+file = "resourcepacks/fusion-connected-glass.pw.toml"
+hash = "b5adc604f7875ced2804536228739046b56ec384d46bd31077025ed4ab21c528"
+metafile = true
+
+[[files]]
+file = "resourcepacks/tombstones-redux.pw.toml"
+hash = "c9967fbec50164d7490dd34a197e4ba105c27b2125cbe39698f3ecee30a3c2ed"
+metafile = true
