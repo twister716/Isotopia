@@ -21,3 +21,7 @@
 /config/duckylib/config-history
 /config/**/*.bak
 /config/sodium-fingerprint.json
+
+# 開発用のMod（Gitには残すが、配布するzipには入れない）
+/mods/kubejs-studio.pw.toml
+/mods/kubejs-studio-hbms-nuclear-tech-mod-continuum.pw.toml

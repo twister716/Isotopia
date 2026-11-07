@@ -128,7 +128,7 @@
 		
 		# Enable minimap
 		# Default: true
-		enabled: true
+		enabled: false
 		
 		# Show entities on minimap
 		# Default: true
@@ -138,37 +138,41 @@
 		# Default: true
 		entity_heads: true
 		entity_icon: {
-			"minecraft:salmon": false
-			"minecraft:zombie": true
-			"minecraft:enderman": true
-			"minecraft:dolphin": true
-			"minecraft:creeper": true
-			"hbm:entity_glyphid": true
-			"minecraft:cod": false
-			"minecraft:horse": true
-			"hbm:entity_mob_phosgene_creeper": true
-			"minecraft:pig": true
-			"hbm:entity_mob_gold_creeper": true
+			"hbm:entity_mob_volatile_creeper": true
+			"minecraft:armadillo": true
+			"minecraft:bat": true
 			"minecraft:sheep": true
-			"minecraft:parrot": true
-			"minecraft:wolf": true
-			"minecraft:chicken": true
-			"minecraft:cow": true
-			"minecraft:fox": true
-			"minecraft:glow_squid": true
-			"minecraft:spider": true
-			"minecraft:drowned": true
-			"minecraft:goat": true
-			"minecraft:rabbit": true
-			"minecraft:bee": true
+			"minecraft:slime": true
 			"minecraft:witch": true
+			"minecraft:donkey": true
+			"minecraft:salmon": false
+			"hbm:entity_mob_phosgene_creeper": true
+			"minecraft:goat": true
+			"minecraft:pig": true
+			"minecraft:spider": true
+			"minecraft:frog": true
+			"hbm:entity_glyphid": true
+			"minecraft:fox": true
+			"minecraft:cow": true
+			"minecraft:skeleton": true
+			"minecraft:enderman": true
+			"minecraft:squid": true
+			"hbm:entity_mob_gold_creeper": true
+			"minecraft:horse": true
+			"minecraft:creeper": true
+			"minecraft:zombie": true
+			"minecraft:rabbit": true
+			"minecraft:dolphin": true
+			"minecraft:chicken": true
+			"minecraft:cod": false
+			"minecraft:glow_squid": true
+			"minecraft:drowned": true
+			"minecraft:zombie_villager": true
+			"minecraft:parrot": true
 			"minecraft:axolotl": true
 			"minecraft:turtle": true
-			"minecraft:skeleton": true
-			"minecraft:zombie_villager": true
-			"hbm:entity_mob_volatile_creeper": true
-			"minecraft:bat": true
-			"minecraft:squid": true
+			"minecraft:bee": true
+			"minecraft:wolf": true
 		}
 		
 		# Minimap font scaling (values not a multiple of 0.5 may look bad)
@@ -288,7 +292,7 @@
 		
 		# Enables creation of death waypoints
 		# Default: true
-		death_waypoints: true
+		death_waypoints: false
 		
 		# Show waypoints in world
 		# Default: true

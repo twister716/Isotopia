@@ -1,0 +1,13 @@
+name = "Better Glass Breaking"
+filename = "betterglassbreaking-1.21.1-neoforge-1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "4b482f9c5be7635af12cce89b29e2846c27a24c8"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 9337639
+project-id = 1731894

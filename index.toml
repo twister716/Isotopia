@@ -1,6 +1,10 @@
 hash-format = "sha256"
 
 [[files]]
+file = "LICENSE"
+hash = "2acea3d718170f59defba88a0779ff33fbfb63eee0a4fb195fc417e3d5d5cd07"
+
+[[files]]
 file = "config/MouseTweaks.cfg"
 hash = "4069ce1a439d8c37453c1b1e9f2037e0942674c7e48723a39b37eab245792ad4"
 
@@ -94,7 +98,7 @@ hash = "dee286337f4d870b63bb0a4c8d9add6385b363f1edd04209e6a74ff9fd7d9d6e"
 
 [[files]]
 file = "config/asyncparticles/asyncparticles-mixin.properties"
-hash = "c31af3ec90f8cb6e356dd671d6a0c050c16ce471d2fb7da1da5223fac93907c1"
+hash = "0d80a3fbd71c133d3784ed520253b09be4dbd349982bbf03fe42758a76b1c1a7"
 
 [[files]]
 file = "config/asyncparticles/asyncparticles.json"
@@ -134,7 +138,7 @@ hash = "8951cbbeff26aea602ccbddb7c4ef2e2ab62e32588a6eb8057e661b214cd0fce"
 
 [[files]]
 file = "config/bettersnowyfeatures-common.toml"
-hash = "64cd74d2b8d3d052467616352e42bbc29c7b6671de1431968b665426bdb0bb2b"
+hash = "03b522da363b066b4791889202a9044afcf8bb2be90bff596e492314722447b3"
 
 [[files]]
 file = "config/betterstrongholds-neoforge-1_21.toml"
@@ -505,6 +509,14 @@ file = "config/curios-server.toml"
 hash = "1a3bee95a96f082b8e97cccbce30c1efe1352b616c78e06d5884fd4475668add"
 
 [[files]]
+file = "config/defaultoptions-common.toml"
+hash = "a1d7ce1bf07d787b9468423697c89a096ed7198d2b74dd55f47b709adf76352a"
+
+[[files]]
+file = "config/defaultoptions/keybindings.txt"
+hash = "9d3101ff043d4925c3fa6ef706ec4d089d6e38392bea95363089c070cd9a8ed1"
+
+[[files]]
 file = "config/dioramaframed-client.toml"
 hash = "2c7be3c83a1c88b55e728a9897eaf851b10fcee8aacf41b1634ee88d5f3d34bb"
 
@@ -575,6 +587,10 @@ hash = "642e56d4c6283f49ef0dd563c7db923b04445569d45f0b810000850e4bdca4cf"
 [[files]]
 file = "config/extraquests/locale.yml"
 hash = "97461c56c8cd7ba14756413561a57aa83c21d6f0559850a593a508c3d692bd93"
+
+[[files]]
+file = "config/fabric/indigo-renderer.properties"
+hash = "29eb03c4bc8a5a568ab0a1b5e6c255f18ab40421ed48051da911b54e942a844d"
 
 [[files]]
 file = "config/fallingtrees/client.json"
@@ -702,7 +718,7 @@ hash = "c324c08dff8c943e8afdd35822a02478e89451efd407176c6ebaff72a9127cbc"
 
 [[files]]
 file = "config/ftbchunks-client.snbt"
-hash = "703d52ba64466c4e70c111016a86a10e7a2ef78dc47b2d3ee59d85c4d44fbb8f"
+hash = "b3b8857c01f8dc34e9a21fa75b95eb63fcc78724f0a3dc4ca2ea8e031ba9a640"
 
 [[files]]
 file = "config/ftbchunks-world.snbt"
@@ -746,7 +762,7 @@ hash = "2fa0c89699e3fbed21958660229b0674abdfa5de399754223cd885f721c0b339"
 
 [[files]]
 file = "config/gpushift-client.toml"
-hash = "2d9933f31d26034c45d5f963cdc6866d5a4f98854a60d326a71ae5e8ca464d7e"
+hash = "22af5cb024ec96cf7689498f9ca91407bf273bd9eb0f30963565e8337b547ef0"
 
 [[files]]
 file = "config/gravesaccessories-server.toml"
@@ -826,7 +842,7 @@ hash = "4d3264b58c502afaeca3f44e8d2db0843c54b8ba957afd21a2d450fe10dafefb"
 
 [[files]]
 file = "config/iris.properties"
-hash = "2c32c97e092887654869373f7b37ef55d8776d6ff7aa548dcefc72a5f60feda0"
+hash = "cc4f8ae6e97cf24cc414bf6623f5046bd8e050c8aa60abad950955bb12ce8ecf"
 
 [[files]]
 file = "config/ironfurnaces-common.toml"
@@ -1003,6 +1019,10 @@ hash = "a21e70454e0e14278335a5e67ae721da38872fc345c550e3bff975ddfb821fca"
 [[files]]
 file = "config/matter_manipulator-client.toml"
 hash = "6ff2ba21845c58c492ecf42a02339b9b3aabbfbedbd533430e5f9410f41373d9"
+
+[[files]]
+file = "config/matter_manipulator-server.toml"
+hash = "1d88011b304a1942c1748cd31c1f93545bdd4eefcd964bb138f3ac5e8e16af07"
 
 [[files]]
 file = "config/maxhealthfix.json"
@@ -1217,6 +1237,14 @@ file = "config/smoothboot.json"
 hash = "a48fba949e4e24fbe05a16e171c63a53bf8bfe389777460961933278bdf98206"
 
 [[files]]
+file = "config/snowrealmagic-client.yaml"
+hash = "34909564dc66fb400f716437577c349965144e46febfb432a388aed3b0fe81e9"
+
+[[files]]
+file = "config/snowrealmagic-common.yaml"
+hash = "1b7595daf87a39fbfcaef2776d34d6592047ba6702dd2c524f3598d370a1a5c4"
+
+[[files]]
 file = "config/snowundertrees-common.toml"
 hash = "a2ae12b7afaa50dc684bca952bc81afef46cc83fa43579627a092ed0173b2064"
 
@@ -1394,7 +1422,7 @@ hash = "0a282f3623f7f9443a1d10b5768865f69e58b74e000dcfb4f40399626b7a6124"
 
 [[files]]
 file = "config/upgraded_chests-client.properties"
-hash = "32296920fe0081744fc092a1d296ae166c097a6b05c1e36c8081f67e76bc3924"
+hash = "8889b4246d3e8cb70f75f4c4bc6f046a007a36091f79fe0ec6a555a4823dd7e7"
 
 [[files]]
 file = "config/upgraded_chests-server.toml"
@@ -1450,7 +1478,7 @@ hash = "121b93764159be6fb7dab523b29a844e2bb78400ce8c48f52135a097e9b0006e"
 
 [[files]]
 file = "config/zfastnoise.mixin.properties"
-hash = "183bfee67f9f58760b02243630eb68ee9727e48e06231e27797c0155c7d19e1a"
+hash = "f0a2772ecebec89a4e25afd86bef58a5484621cd5b994d99d074a214928debfb"
 
 [[files]]
 file = "defaultconfigs/certain_questing_additions/client-config.snbt"
@@ -1622,8 +1650,8 @@ hash = "bb2700ce31fc7cd121ecf07f106302303ee366b7573b77bbdd97eee955233cda"
 metafile = true
 
 [[files]]
-file = "mods/better-snowy-leaves.pw.toml"
-hash = "1361094e980215d91bafee38975c39b16ff819df36575ae0676b600f38678d6f"
+file = "mods/better-glass-breaking.pw.toml"
+hash = "1e4b196ca224b7aa50d3020bf259168b8e33bfc0df02d0a011bdc1d9375b9684"
 metafile = true
 
 [[files]]
@@ -1774,6 +1802,11 @@ metafile = true
 [[files]]
 file = "mods/damage-numbers-floating-damage-indicators-crits.pw.toml"
 hash = "76e51ff8cd039dfdc038ca459f529231df0faaaddd845e3f1430ec45e1b91704"
+metafile = true
+
+[[files]]
+file = "mods/default-options.pw.toml"
+hash = "12602d5c4952c42a2390b1d78869777d81e37f0393188a3bb409ded91e18f373"
 metafile = true
 
 [[files]]
@@ -2142,16 +2175,6 @@ hash = "1506a3d749a45bc760b3ad57ef1fbb959f0c166b6d1d4955114fd66db7a4855d"
 metafile = true
 
 [[files]]
-file = "mods/kubejs-studio-hbms-nuclear-tech-mod-continuum.pw.toml"
-hash = "a88eecccb5a8bded1b56488beb43559e47bda08f531dac592f8d83ee11c264f3"
-metafile = true
-
-[[files]]
-file = "mods/kubejs-studio.pw.toml"
-hash = "98f9ffa05646eaa06635c6a60139ea8bf10b13395c035422abefa6d29fc96165"
-metafile = true
-
-[[files]]
 file = "mods/kubejs.pw.toml"
 hash = "031e809b62d4d70a66be3e68ab7deeffba17027bb785c83b95c6dcfd4a4e6a8d"
 metafile = true
@@ -2509,6 +2532,11 @@ metafile = true
 [[files]]
 file = "mods/smooth-boot-recreated.pw.toml"
 hash = "1496e2641db049b31cbc8b5ff8d7f6355cba879360cab78e88ca370b4a795ffb"
+metafile = true
+
+[[files]]
+file = "mods/snow-real-magic.pw.toml"
+hash = "4341d5273c20c2092f68154a2f6a0d2f6601977da68b49a092afcd7f76d0c2b4"
 metafile = true
 
 [[files]]
